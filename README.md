@@ -1,1 +1,13 @@
 # Linux-Kernel-Internals
+- Linker Scripts
+- Makefile
+- Device Drivers
+- Bottom Halves Interrupts
+- Timing Subsystem
+- Linux Kernel Debugging
+- Synchronization
+- System Calls
+- ELF file breakdown
+- Exception in Armv8-A and Kernel Crash debugging
+- Timers, PWM, CAN, Low Power(MCU)
+- Custom Bootloader Development
