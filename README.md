@@ -11,3 +11,7 @@
 - Exception in Armv8-A and Kernel Crash debugging
 - Timers, PWM, CAN, Low Power(MCU)
 - Custom Bootloader Development
+
+### How to create and apply patches in "git" via Gerrit/ Github?
+- $ git diff > s2r_poip.patch
+- git cherry-pick 
