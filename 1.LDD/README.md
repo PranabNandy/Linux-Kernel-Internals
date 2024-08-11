@@ -35,4 +35,7 @@ If the function returns **-ve number** then, the kernel returns an message to `i
 
 ![Screenshot from 2024-08-11 15-36-24](https://github.com/user-attachments/assets/cb8dd508-f3a2-4850-9697-7b42f5c40fc6)
 
+### insmod
+- what happens behind the scene
+![Screenshot from 2024-08-11 17-04-34](https://github.com/user-attachments/assets/973e6922-60c7-48ee-9b63-7920fe04de45)
 
