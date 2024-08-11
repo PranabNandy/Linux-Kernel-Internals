@@ -39,3 +39,6 @@ If the function returns **-ve number** then, the kernel returns an message to `i
 - what happens behind the scene
 ![Screenshot from 2024-08-11 17-04-34](https://github.com/user-attachments/assets/973e6922-60c7-48ee-9b63-7920fe04de45)
 
+### rmmod
+- what happens behind the scene
+- ![Screenshot from 2024-08-11 22-30-12](https://github.com/user-attachments/assets/e6093d52-13b0-417f-9265-0c39c682d32b)
