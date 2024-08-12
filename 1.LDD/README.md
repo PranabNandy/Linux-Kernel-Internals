@@ -1,5 +1,8 @@
-![Screenshot from 2024-08-12 08-05-54](https://github.com/user-attachments/assets/36ea1854-a9cf-479d-a9c0-f159e74e5ff6)# Linux Device Driver
 
+
+# Linux Device Driver
+
+![Screenshot from 2024-08-12 08-08-53](https://github.com/user-attachments/assets/ed37ec5f-aef7-4ac5-a40a-0691f443488d)
 
 ### boot flow
 
