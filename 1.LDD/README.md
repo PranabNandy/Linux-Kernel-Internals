@@ -60,6 +60,10 @@ If the function returns **-ve number** then, the kernel returns an message to `i
 ![Screenshot from 2024-08-12 08-05-54](https://github.com/user-attachments/assets/cb351bd8-778b-4ad2-a085-2ae7532d7647)
 ![Screenshot from 2024-08-12 08-03-08](https://github.com/user-attachments/assets/ab00970a-06c9-4390-8703-b6556b528828)
 
+- **file * is a very important cmd**
+- but proc file system won't show the type of the file
+
+![Screenshot from 2024-08-12 08-38-25](https://github.com/user-attachments/assets/76167379-8164-43d0-88cf-594f4e32970b)
 
 
 
