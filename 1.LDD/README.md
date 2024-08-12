@@ -1,4 +1,4 @@
-# Linux Device Driver
+![Screenshot from 2024-08-12 08-05-54](https://github.com/user-attachments/assets/36ea1854-a9cf-479d-a9c0-f159e74e5ff6)# Linux Device Driver
 
 
 ### boot flow
@@ -46,3 +46,19 @@ If the function returns **-ve number** then, the kernel returns an message to `i
 ### modinfo
 - what kind of information is getting added in module
 ![Screenshot from 2024-08-12 07-26-18](https://github.com/user-attachments/assets/6d57616d-d08d-467b-829f-2073b0a859de)
+
+### proc fs
+- It is a vfs i.e logically exist but physically does not exist
+- /dev/ is a real file system (char files and block files)
+
+![Screenshot from 2024-08-12 07-58-33](https://github.com/user-attachments/assets/06aefbd8-36ac-4017-983d-0d35dc9eb5da)
+![Screenshot from 2024-08-12 07-59-22](https://github.com/user-attachments/assets/a1cc97ad-db71-4579-a106-f84d05994966)
+
+![Screenshot from 2024-08-12 08-05-54](https://github.com/user-attachments/assets/cb351bd8-778b-4ad2-a085-2ae7532d7647)
+![Screenshot from 2024-08-12 08-03-08](https://github.com/user-attachments/assets/ab00970a-06c9-4390-8703-b6556b528828)
+
+
+
+
+
+
