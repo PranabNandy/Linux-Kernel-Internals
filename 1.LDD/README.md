@@ -42,3 +42,7 @@ If the function returns **-ve number** then, the kernel returns an message to `i
 ### rmmod
 - what happens behind the scene
 - ![Screenshot from 2024-08-11 22-30-12](https://github.com/user-attachments/assets/e6093d52-13b0-417f-9265-0c39c682d32b)
+
+### modinfo
+- what kind of information is getting added in module
+![Screenshot from 2024-08-12 07-26-18](https://github.com/user-attachments/assets/6d57616d-d08d-467b-829f-2073b0a859de)
