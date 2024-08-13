@@ -67,5 +67,7 @@ If the function returns **-ve number** then, the kernel returns an message to `i
 
 
 
+## driver with proc_fs
+![Screenshot from 2024-08-13 08-29-04](https://github.com/user-attachments/assets/25d2e760-0a2c-40a6-b9db-c706024f09c3)
 
 
