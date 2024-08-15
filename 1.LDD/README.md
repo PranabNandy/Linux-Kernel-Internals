@@ -8,6 +8,20 @@
 
 ![Screenshot from 2024-08-07 07-40-58](https://github.com/user-attachments/assets/f02f72c6-7078-4cc6-847c-69f951f58530)
 
+### Important Points
+- A dynamically loadable module does not need to compile during kernel compilation and does not need to link statically
+- **boot flow orders**
+    - BootROM (inbuilt in the chip/SoC) starts the execution and brings up very bare-minimum hardware necessary to boot further.
+    - BootROM (inbuilt in the chip/SoC) copies the second stage bootloader from non-volatile memory (like SD-Cards or Flash memory) onto on-chip memory (typically SRAMs) and transfers control to it.
+    - The second stage bootloader then enables DDR/DRAM and certain other strictly required peripherals and copies the kernel image from non-volatile memory to a specific location in DRAM
+    - Control is now transferred to the Linux kernel and it does the vast system-level initialization.
+ 
+- **insmod** is a user space utilies used to load the Dynamically LKM
+- SYSTEM CALL is either be implemented in Kernel Code or in kernel module.
+  
+
+
+
 
 Device Drivers to some extent develop the **System Calls**
 2 types of Drivers:
