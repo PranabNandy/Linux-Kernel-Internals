@@ -77,4 +77,9 @@ If the function returns **-ve number** then, the kernel returns an message to `i
 ## driver with proc_fs
 ![Screenshot from 2024-08-13 08-29-04](https://github.com/user-attachments/assets/25d2e760-0a2c-40a6-b9db-c706024f09c3)
 
+## importance of offset field in device driver
+![Screenshot from 2024-08-15 19-36-33](https://github.com/user-attachments/assets/a8514926-81d8-466c-8a1f-1381d902aea0)
+
+
+
 
