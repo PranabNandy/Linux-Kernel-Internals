@@ -65,6 +65,13 @@ If the function returns **-ve number** then, the kernel returns an message to `i
 
 ![Screenshot from 2024-08-12 08-38-25](https://github.com/user-attachments/assets/76167379-8164-43d0-88cf-594f4e32970b)
 
+### External Hardware Camera and Camera Application
+- Device Driver needs to receive the data from `APP`
+- It needs to send command to `HW`
+- It needs to receive the response from `HW`
+- It also needs to send some message to `APP`
+![Screenshot from 2024-08-15 12-35-45](https://github.com/user-attachments/assets/e6f5b367-db17-4d10-a53b-fe46a6b1f423)
+
 
 
 ## driver with proc_fs
