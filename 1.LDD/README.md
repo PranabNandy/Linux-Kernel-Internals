@@ -80,6 +80,8 @@ If the function returns **-ve number** then, the kernel returns an message to `i
 ## importance of offset field in device driver
 ![Screenshot from 2024-08-15 19-36-33](https://github.com/user-attachments/assets/a8514926-81d8-466c-8a1f-1381d902aea0)
 
+## Using device driver from userland
+![Screenshot from 2024-08-16 00-09-49](https://github.com/user-attachments/assets/88b5d04e-2086-4b18-85fe-9cae40e6a096)
 
 
 
