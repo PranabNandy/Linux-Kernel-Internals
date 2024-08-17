@@ -1,7 +1,7 @@
 # Linux-Kernel-Internals
 - [ ] Linker Scripts
 - [ ] Makefile
-- [ ] Device Drivers
+- [ ] Device Drivers  `(Done)`
 - [ ] Bottom Halves Interrupts
 - [ ] Timing Subsystem
 - [ ] Linux Kernel Debugging
