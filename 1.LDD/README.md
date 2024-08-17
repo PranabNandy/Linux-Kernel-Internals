@@ -48,12 +48,13 @@ by consuming the .ko file kernel got to know which symbol to invoke during addin
 
 
 
-make is an **Uility**
-It is used for build system as **recipe**
+### make is an Uility
+- It is used for build system as a **recipe**
 
 ![Screenshot from 2024-08-11 13-58-21](https://github.com/user-attachments/assets/f3bf448c-e6f7-468b-8c9d-26f03f4d7660)
 
-If the function returns **-ve number** then, the kernel returns an message to `insmod` that I can not insert this module and `lsmod` will not this module.
+### If the function returns **-ve number** then
+- the kernel returns an message to `insmod` that I can not insert this module and `lsmod` will not this module.
 
 ![Screenshot from 2024-08-11 15-36-24](https://github.com/user-attachments/assets/cb8dd508-f3a2-4850-9697-7b42f5c40fc6)
 
