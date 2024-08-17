@@ -2,6 +2,7 @@
 
 ## Architecture
 - what a car can do like go straight, go backward, go left, go right
+- It basically specifies what a system should do 
 
 ## Micro-architecture
 - How to implement all of these features in a real car
