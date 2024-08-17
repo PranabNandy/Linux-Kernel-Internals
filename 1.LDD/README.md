@@ -24,6 +24,7 @@
 
 
 Device Drivers to some extent develop the **System Calls**
+
 2 types of Drivers:
 1. Boot time drivers / built-in driver
 2. Loading drivers in run time i.e when the system is live / Out of tree module
