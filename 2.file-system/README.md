@@ -1,40 +1,44 @@
-/ (Root File System): The root file system is the top-level directory in Linux. All other directories and file systems are mounted under this.
+# Linux fs
 
-/dev/ (Device File System): Contains device nodes that represent hardware and virtual devices. For example, /dev/sda represents a storage device.
+- **`/ (Root File System):`** The root file system is the top-level directory in Linux. All other directories and file systems are mounted under this.
 
-/proc/ (Process Information File System): A virtual file system that contains runtime system information, such as system memory, devices mounted, hardware configuration, etc. For example, /proc/cpuinfo provides information about the CPU.
+- **`/dev/ (Device File System):`** Contains device nodes that represent hardware and virtual devices. For example, /dev/sda represents a storage device.
 
-/sys/ (Sysfs): Provides information about the devices and drivers present in the system. It exposes kernel objects and their attributes, such as device information, kernel modules, and more.
+- **`/proc/ (Process Information File System):`** A virtual file system that contains runtime system information, such as system memory, devices mounted, hardware configuration, etc. For example, /proc/cpuinfo provides information about the CPU.
 
-/tmp/ (Temporary File System): Used to store temporary files by applications and the system. Files here are typically cleared on reboot.
+- **`/sys/ (Sysfs):`** Provides information about the devices and drivers present in the system. It exposes kernel objects and their attributes, such as device information, kernel modules, and more.
 
-/run/: A temporary file system that contains information about the system since the last boot. It is used to store transient runtime data.
+- /tmp/ (Temporary File System): Used to store temporary files by applications and the system. Files here are typically cleared on reboot.
 
-/mnt/ and /media/: Commonly used for mounting external file systems, such as USB drives, CD-ROMs, or network file systems.
+- /run/: A temporary file system that contains information about the system since the last boot. It is used to store transient runtime data.
 
-/boot/: Contains the boot loader files, including the Linux kernel and GRUB files.
+- /mnt/ and /media/: Commonly used for mounting external file systems, such as USB drives, CD-ROMs, or network file systems.
 
-/home/: User home directories are stored here. Each user has a separate directory under /home/, such as /home/username/.
+- /boot/: Contains the boot loader files, including the Linux kernel and GRUB files.
 
-/var/ (Variable Files): Contains variable data like logs, spool files, and transient data. For example, system logs are often stored in /var/log/.
+- /home/: User home directories are stored here. Each user has a separate directory under /home/, such as /home/username/.
 
-/etc/: Contains configuration files and shell scripts needed to boot and configure the system.
+- /var/ (Variable Files): Contains variable data like logs, spool files, and transient data. For example, system logs are often stored in /var/log/.
 
-/usr/: Contains user programs, libraries, documentation, and other files that are not part of the core system. /usr/bin/ contains executable binaries, and /usr/lib/ contains libraries.
+- **`/etc/: `** Contains **configuration files and shell scripts** needed to boot and configure the system.
 
-/opt/: Used to install optional software packages.
+- /usr/: Contains user programs, libraries, documentation, and other files that are not part of the core system. /usr/bin/ contains executable binaries, and /usr/lib/ contains libraries.
 
-/lib/: Contains shared libraries needed to boot the system and execute commands in the root file system.
+- /opt/: Used to install optional software packages.
 
-/sbin/: Contains system binaries essential for booting and system recovery.
+- /lib/: Contains shared libraries needed to boot the system and execute commands in the root file system.
 
-/srv/: Contains data for services provided by the system, such as web or FTP servers.
+- /sbin/: Contains system binaries essential for booting and system recovery.
 
-Virtual File Systems:
-tmpfs: A temporary file system that keeps files in volatile memory (RAM) instead of a persistent storage disk.
-debugfs: A file system used for debugging the Linux kernel, typically mounted at /sys/kernel/debug.
-cgroup: A file system used to control and monitor resources allocated to process groups.
-Network File Systems:
-NFS (Network File System): Allows a system to share directories and files with others over a network.
-CIFS/SMB: Common Internet File System/Server Message Block, used mainly for file sharing on Windows networks.
-AFS: Andrew File System, a distributed network file system.
+- /srv/: Contains data for services provided by the system, such as web or FTP servers.
+
+## Virtual File Systems:
+
+- tmpfs: A temporary file system that keeps files in volatile memory (RAM) instead of a persistent storage disk.
+- **`debugfs:`** A file system used for debugging the Linux kernel, typically mounted at /sys/kernel/debug.
+- cgroup: A file system used to control and monitor resources allocated to process groups.
+
+## Network File Systems:
+- **`NFS (Network File System):`** Allows a system to share directories and files with others over a network.
+- CIFS/SMB: Common Internet File System/Server Message Block, used mainly for file sharing on Windows networks.
+- AFS: Andrew File System, a distributed network file system.
