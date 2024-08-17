@@ -32,10 +32,14 @@ Device Drivers to some extent develop the **System Calls**
 
 
 what are these Macros do "`module_init`" and "`module_exit`"?
+
 This is the process using which, basically during the compilation process
 in **.ko** file, 2 symbols are exported 
+
 **pranab_init**
+
 **pranab_exit**
+
 by consuming the .ko file kernel got to know which symbol to invoke during adding a driver and removing a driver.
 
 ![Screenshot from 2024-08-11 11-37-19](https://github.com/user-attachments/assets/2316849e-0301-4c58-9690-b48ed2bde567)
