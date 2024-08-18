@@ -11,3 +11,10 @@
 
 
 ![Screenshot from 2024-08-17 22-18-25](https://github.com/user-attachments/assets/9364f1a3-e0db-4d6a-800d-399c6450aa6a)
+
+## To master CPU
+- Programmers' model
+- Memory model
+- Exception Model
+- Debug Model
+
