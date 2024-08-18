@@ -18,3 +18,8 @@
 - Exception Model
 - Debug Model
 
+## Exception vs Interrupts
+- **Exception** happens internal to the CPU (like accessing wrong memory address)
+- **Interrupt** happens external to the CPU
+
+
