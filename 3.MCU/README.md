@@ -25,4 +25,11 @@
 - **Exception** happens internal to the CPU (like accessing wrong memory address)
 - **Interrupt** happens external to the CPU
 
+![Screenshot from 2024-08-19 22-50-39](https://github.com/user-attachments/assets/832913e2-da6c-4a7a-a8b3-e654d25a13e6)
+![Screenshot from 2024-08-19 22-50-16](https://github.com/user-attachments/assets/8bfb1bba-f751-4bb6-9344-3b84b9f93bc7)
+![Screenshot from 2024-08-19 22-49-06](https://github.com/user-attachments/assets/e8c5d1bc-f404-4055-b4aa-ff70ce31f1ae)
+
+
+
+
 
