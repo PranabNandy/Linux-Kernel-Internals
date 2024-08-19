@@ -30,6 +30,10 @@
 ![Screenshot from 2024-08-19 22-49-06](https://github.com/user-attachments/assets/e8c5d1bc-f404-4055-b4aa-ff70ce31f1ae)
 
 
-
+## Different modes
+- **Un-Privilege thread** mode for application.
+- 
+![Screenshot from 2024-08-19 23-13-29](https://github.com/user-attachments/assets/7f209e28-7008-4abe-b29e-45325f401d81)
+![Screenshot from 2024-08-19 23-25-29](https://github.com/user-attachments/assets/de869072-99af-47b8-8a4f-61c8114e5d47)
 
 
