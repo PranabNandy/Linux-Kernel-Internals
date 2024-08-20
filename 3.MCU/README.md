@@ -42,6 +42,6 @@
 ## what happens when CPU boots up
 - first **MSP initial value** will be copied to **SP** (i.e R13 register)
 - **Reset vector** value will be copied to **PC**
-- PC will start fetching the instruction from that location **(0x000004)**
+- PC will start fetching the instruction from that location **(mem[0x000004] = 0x000f9c)**
 - Depending on the interrupt type, the respective **offset value** in the vector table will be decided and the respective **interrupt handler** will be called 
 ![Screenshot from 2024-08-20 06-56-44](https://github.com/user-attachments/assets/bee12b32-7b9e-42e0-81d8-6732873950c0)
