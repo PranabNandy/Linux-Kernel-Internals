@@ -6,10 +6,10 @@
 ```
 where IOX can be :
 
-- “IO“: an ioctl with no parameters
-- “IOW“: an ioctl with write parameters (copy_from_user)
-- “IOR“: an ioctl with read parameters (copy_to_user)
-- “IOWR“: an ioctl with both write and read parameters
+- IO: an ioctl with no parameters
+- IOW: an ioctl with write parameters (copy_from_user)
+- IOR: an ioctl with read parameters (copy_to_user)
+- IOWR: an ioctl with both write and read parameters
 
 - The Magic Number is a unique number or character that will differentiate our set of ioctl calls **`(for the specific driver i.e /dev/dummy file)`**  from the other ioctl calls **(other driver calls)**. some times the major number for the device is used here.
 
@@ -26,13 +26,13 @@ where IOX can be :
 int  ioctl(struct inode *inode,struct file *file,unsigned int cmd,unsigned long arg)
 ```
 
-- <inode>: is the inode number of the file being worked on.
-- <file>: is the file pointer to the file that was passed by the application.
-- <cmd>: is the ioctl command that was called from the userspace.
-- <arg>: are the arguments passed from the userspace
+- inode: is the inode number of the file being worked on.
+- file: is the file pointer to the file that was passed by the application.
+- cmd: is the ioctl command that was called from the userspace.
+- arg: are the arguments passed from the userspace
 
-- Within the function “ioctl” we need to implement all the commands that we defined above (WR_VALUE, RD_VALUE). We need to use the same commands in the switch statement which is defined above.
-- Then we need to inform the kernel that the ioctl calls are implemented in the function “etx_ioctl“. This is done by making the fops pointer “unlocked_ioctl” to point to “etx_ioctl” as shown below.
+- Within the function "ioctl" we need to implement all the commands that we defined above (WR_VALUE, RD_VALUE). We need to use the same commands in the switch statement which is defined above.
+- Then we need to inform the kernel that the ioctl calls are implemented in the function 'etx_ioctl'. This is done by making the fops pointer "unlocked_ioctl" to point to "etx_ioctl" as shown below.
 
 ```cpp
 
