@@ -41,6 +41,7 @@ int  ioctl(struct inode *inode,struct file *file,unsigned int cmd,unsigned long 
 */
 static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {
+         int value=560;
          switch(cmd) {
                 case WR_VALUE:
                         if( copy_from_user(&value ,(int32_t*) arg, sizeof(value)) )
@@ -95,9 +96,9 @@ long ioctl( "file descriptor","ioctl command","Arguments");
 
 Where,
 
-- <file descriptor>: This the open file on which the ioctl command needs to be executed, which would generally be device files.
-- <ioctl command>: ioctl command which is implemented to achieve the desired functionality
-- <arguments>: The arguments need to be passed to the ioctl command.
+- file descriptor: This the open file on which the ioctl command needs to be executed, which would generally be device files.
+- ioctl command: ioctl command which is implemented to achieve the desired functionality
+- arguments: The arguments need to be passed to the ioctl command.
 
 ```cpp
 ioctl(fd, WR_VALUE, (int32_t*) &number); 
