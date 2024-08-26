@@ -13,7 +13,7 @@ where IOX can be :
 
 - The Magic Number is a unique number or character that will differentiate our set of ioctl calls **`(for the specific driver i.e /dev/dummy file)`**  from the other ioctl calls **(other driver calls)**. some times the major number for the device is used here.
 
-- Command Number is the number that is assigned to the ioctl. This is used to differentiate the commands from one another **`(with in the specific driver i.e /dev/dummy file)`**
+- Command Number is the number that is assigned to the ioctl. This is used to differentiate the commands from one another **`(within the specific driver i.e /dev/dummy file)`**
 
 - The last is the type of data.
 ```cpp
