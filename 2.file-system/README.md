@@ -1,4 +1,5 @@
 # Linux fs
+![Linux-storage-stack-diagram_v4 10](https://github.com/user-attachments/assets/f27c1c5f-48f2-4e5a-970c-c7b298e97c84)
 
 - **`/ (Root File System):`** The root file system is the top-level directory in Linux. All other directories and file systems are mounted under this.
 
