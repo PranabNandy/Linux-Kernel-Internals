@@ -1,4 +1,5 @@
 Why makefile and Kbuild both are present in top level directory whereas only one is present in any directory ?
+- In each subdirectory, there might be a **Kbuild** file (sometimes called a **Makefile**, depending on convention) that describes how the objects in that directory should be built. This allows modular control over the build process in each directory.
 
 https://www.youtube.com/@rambabu775
 
