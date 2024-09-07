@@ -13,6 +13,7 @@ Note that a tristate configuration item that is assigned **m in the .config beco
 - **`.config file`**: All config symbol values are saved in a special file called .config. Every time you want to change a kernel compile configuration, you execute a make target, such as menuconfig or xconfig.
 - `Makefiles`: The last component of the kbuild system is the Makefiles. These are used to build the kernel image and modules. Like the Kconfig files, each subdirectory has a Makefile that compiles only the files in its directory. 
 
+- After the make menuconfig, we generates the **.config** file. We will build the source code along with the **.config** file for **Kernel image** (vmlinux) and **Modules**.
 # Coin Driver
 ```bash
 root@localhost:~# cat /dev/coin
