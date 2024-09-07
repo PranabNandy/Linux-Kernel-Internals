@@ -10,6 +10,7 @@ https://www.youtube.com/watch?v=D4k1Q3aHpT8
 
 https://www.youtube.com/watch?v=Wm8_1mN2fk8
 
+https://embetronicx.com/tutorials/linux/device-drivers/procfs-in-linux/
 
 ## The Linux Kernel Build System has four main components: 
 - `Config symbols`: Two kinds of symbols are used for conditional compilation: boolean and tristate. Tristate symbols, on the other hand, can take three different values: yes (y : built in), no(n) or module(m). 
