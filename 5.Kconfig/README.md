@@ -1,4 +1,17 @@
-The Linux Kernel Build System has four main components: 
+Why makefile and Kbuild both are present in top level directory whereas only one is present in any directory ?
+
+https://www.youtube.com/@rambabu775
+
+https://stackoverflow.com/questions/26840267/driver-code-in-kernel-module-doesnt-execute
+
+https://www.youtube.com/@MPrashant/playlists
+
+https://www.youtube.com/watch?v=D4k1Q3aHpT8
+
+https://www.youtube.com/watch?v=Wm8_1mN2fk8
+
+
+## The Linux Kernel Build System has four main components: 
 - `Config symbols`: Two kinds of symbols are used for conditional compilation: boolean and tristate. Tristate symbols, on the other hand, can take three different values: yes (y : built in), no(n) or module(m). 
 
 Not everything in the kernel can be compiled as a module. Many features are so intrusive that you have to decide at compilation time whether the kernel will support them. For example, you can't add **Symmetric Multi-Processing (SMP)** or **kernel preemption** support to a running kernel. 
