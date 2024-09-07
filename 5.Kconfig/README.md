@@ -1,5 +1,15 @@
-Why makefile and Kbuild both are present in top level directory whereas only one is present in any directory ?
+## Why makefile and Kbuild both are present in top level directory whereas only one is present in any directory ?
 - In each subdirectory, there might be a **Kbuild** file (sometimes called a **Makefile**, depending on convention) that describes how the objects in that directory should be built. This allows modular control over the build process in each directory.
+- `Top level Makefile` includes the **rules** from the `Kbuild` system to manage the specific files to compile.
+- By separating the concerns, the top-level `Makefile focuses on the global build process`, while the Kbuild system in the subdirectories `focuses on building specific parts of the kernel`
+- The Kbuild system may have one of two forms:
+
+    - `Kbuild in a Directory`: Directs how to build files in that specific directory.
+
+    - `Makefile in Subdirectories`: Sometimes the Kbuild file is named Makefile, especially in subdirectories, to integrate smoothly with the traditional make tool, though it is still part of the Kbuild system.
+
+- If it's complex enough, the file might be called **Makefile.**
+- In simpler cases, the build rules are placed in a file called **Kbuild.**
 
 https://www.youtube.com/@rambabu775
 
