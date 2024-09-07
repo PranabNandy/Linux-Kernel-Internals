@@ -29,6 +29,9 @@ drivers/char/Makefile |    1 +
 drivers/char/coin.c   |   89 ++++++++++++++++++++++++++++++++++++++++
 3 files changed, 106 insertions(+), 0 deletions(-)
 ```
+<img width="609" alt="Screenshot 2024-09-07 192051" src="https://github.com/user-attachments/assets/1b4532ce-3128-4031-9984-35958caa798e">
+
+<img width="383" alt="Screenshot 2024-09-07 192229" src="https://github.com/user-attachments/assets/0f0d5969-cbd8-4cbc-b398-77a1b0c19794">
 
 ### coin.c
 ```cpp
