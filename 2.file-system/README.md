@@ -1,3 +1,20 @@
+### why kernel also need "system.map" and "initrd" along with vmlinux ?
+![Screenshot from 2024-09-08 13-49-45](https://github.com/user-attachments/assets/a34e7abf-bdd7-437b-82b5-a55a0118f161)
+
+- There are some external modules present in `ext4 fs` **(present in Hard drive)** which kernel is not aware of that. But some of those modules are necessary for booting up the procedure. Some of those modules are present in `initrd` ( **init ram disk**)
+- `initrd` contains essential drivers and tools needed to **mount the real root file system.** The `initrd` allows the kernel to boot and load critical modules (e.g., **for accessing disks or filesystems**) before the main file system is mounted.
+- The `System.map` file is a symbol table for the Linux kernel. It contains a mapping between symbol names (e.g., functions and variables) and their corresponding memory addresses in the kernel.
+- `vmLinux` won't know how to load few system call. How to access those calls in `initrd`. It will be mapped by `system.map`. 
+
+- In modern monolithic kernel, we can not put everything in kernel images. There must be some external module or loadable module.
+- When we do make module, the modules will be generated in local location(where we are executing the make module). We need to put it inside the `/lib/module/'kernel_version'/` , in case we want to upgrade our kernel.
+- To do the second part, we execute `make modules_install`
+- Before loading kernel, grub boot loader will load and execute. We have to tell this bootloader that I have a new kernel. Can you please load it??
+- 
+
+## Loadable Modules
+![Screenshot from 2024-09-08 15-54-20](https://github.com/user-attachments/assets/81b0655c-1bcd-4f45-abc8-92fc175bf7bb)
+
 # Linux fs
 ![Linux-storage-stack-diagram_v4 10](https://github.com/user-attachments/assets/f27c1c5f-48f2-4e5a-970c-c7b298e97c84)
 
