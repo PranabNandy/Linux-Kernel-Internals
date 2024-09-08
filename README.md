@@ -1,3 +1,8 @@
+### OS =
+**Linux Kernel + Device Driver + Bootloader + Terminal + Basic fs + Other UI**
+### Linux Kernel = 
+**Interrupt Handler + Scheduler + Memory Management + System Services (such as Networking & IPC)**
+
 # Linux-Kernel-Internals
 - [ ] Linker Scripts
 - [ ] Makefile
