@@ -3,6 +3,11 @@
 ### Linux Kernel = 
 **Interrupt Handler + Scheduler + Memory Management + System Services (such as Networking & IPC)**
 
+#### Normal build , 
+`$ make -j32`
+#### Silencing the output,  
+`$ make -j32 > /dev/null`
+`Here only error messages will get printed`
 # Linux-Kernel-Internals
 - [ ] Linker Scripts
 - [ ] Makefile
