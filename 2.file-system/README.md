@@ -7,12 +7,12 @@
 - `vmLinux` won't know how to load few system call. How to access those calls in `initrd`. It will be mapped by `system.map`. 
 
 - In modern monolithic kernel, we can not put everything in kernel images. There must be some external module or loadable module.
-- When we do make module, the modules will be generated in local location(where we are executing the make module). We need to put it inside the `/lib/module/'kernel_version'/` , in case we want to upgrade our kernel.
+- When we do **make module**, the modules will be generated in local location(where we are executing the make module). We need to put it inside the `/lib/module/'kernel_version'/` , in case we want to upgrade our kernel.
 - To do the second part, we execute `make modules_install`
-- Before loading kernel, grub boot loader will load and execute. We have to tell this bootloader that I have a new kernel. Can you please load it??
-- 
+- Before loading kernel, grub boot loader will load and execute. We have to tell this bootloader that I have a new kernel. Can you please load OUR NEW KERNEL??
+ 
 
-## Loadable Modules
+## Dynamically Loadable Modules (or External Modules)
 ![Screenshot from 2024-09-08 15-54-20](https://github.com/user-attachments/assets/81b0655c-1bcd-4f45-abc8-92fc175bf7bb)
 
 # Linux fs
