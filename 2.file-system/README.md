@@ -14,6 +14,10 @@
 
 ## Dynamically Loadable Modules (or External Modules)
 ![Screenshot from 2024-09-08 15-54-20](https://github.com/user-attachments/assets/81b0655c-1bcd-4f45-abc8-92fc175bf7bb)
+## Different between lsmod and modprobe 
+- Even though we are trying to load Custom module from our Custom Kernel (4.4.72)
+![Screenshot from 2024-09-08 17-27-45](https://github.com/user-attachments/assets/7df1a743-59da-4208-96ab-bc46f8fdd1d5)
+
 
 # Linux fs
 ![Linux-storage-stack-diagram_v4 10](https://github.com/user-attachments/assets/f27c1c5f-48f2-4e5a-970c-c7b298e97c84)
