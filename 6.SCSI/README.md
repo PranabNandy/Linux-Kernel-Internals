@@ -34,4 +34,10 @@ SCSI commands can be transported over just about `any kind of bus`, and are the 
 - scsi_queue_work — Queue work to the Scsi_Host workqueue.
 - scsi_flush_work — Flush a Scsi_Host's workqueue.
 
-  
+`drivers/scsi/scsi_scan.c`
+
+Scan a host to determine which (if any) devices are attached. The general scanning/probing algorithm is as follows, exceptions are made to it depending on device specific flags, compilation options, and global variable (boot or module load time) settings. A specific LUN is scanned via an INQUIRY command; if the LUN has a device attached, **a scsi_device is allocated and setup for it**. 
+
+**For every id of every channel on the given host**, start by scanning LUN 0. Skip hosts that don't respond at all to a scan of LUN 0. Otherwise, if LUN 0 has a device attached, allocate and setup a scsi_device for it. If target is SCSI-3 or up, issue a REPORT LUN, and scan all of the LUNs returned by the REPORT LUN; else, sequentially scan LUNs up until some maximum is reached, or a LUN is seen that cannot have a device attached to it.
+
+
