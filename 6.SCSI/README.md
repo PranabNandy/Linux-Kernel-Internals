@@ -16,3 +16,9 @@ SCSI commands can be transported over just about `any kind of bus`, and are the 
 - **scsi_bios_ptable** — Read PC partition table out of first sector of device.
 - **scsicam_bios_param** — Determine geometry of a disk in cylinders/heads/sectors.
 - **scsi_partsize** — Parse cylinders/heads/sectors from PC partition table
+
+### SCSI sysfs interface routines.
+`drivers/scsi/scsi_sysfs.c`
+- **scsi_remove_device** — unregister a device from the scsi bus
+- **scsi_remove_target** — try to remove a target and all its devices
+
