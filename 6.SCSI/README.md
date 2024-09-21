@@ -59,3 +59,15 @@ This command is used to test the target's status. If the target can accept a med
 This command returns the target's make, model, and device type. The high-level Linux code uses this command to differentiate among magnetic disks, optical disks, and tape drives (the high-level code currently does not support printers, processors, or juke boxes).
 #### READ and WRITE
 These commands are used to transfer data from and to the target. You should be sure your driver can support simpler commands, such as TEST UNIT READY and INQUIRY, before attempting to use the READ and WRITE commands.
+
+#### unchecked_isa_dma
+Some host adapters use Direct Memory Access (DMA) to read and write blocks of data directly from or to the computer's main memory. Linux is a virtual memory operating system that can use more than **16 MB of physical memory**. Unfortunately, on machines using the ISA bus (the so-called ``Industry Standard Architecture'' bus was introduced with the IBM PC/XT and IBM PC/AT computers), DMA is limited to the low 16 MB of physical memory.
+
+If the unchecked_isa_dma bit is set, the high-level code will provide data buffers which are guaranteed to be in the low 16 MB of the physical address space. Drivers written for host adapters that do not use DMA should set this bit to zero. Drivers specific to EISA bus (the ``Extended Industry Standard Architecture'' bus is a non-proprietary 32-bit bus for 386 and i486 machines) machines should also set this bit to zero, since EISA bus machines allow unrestricted DMA access.
+
+#### detect()
+The detect() function's only argument is the host number, an index into the scsi_hosts variable (an array of type struct Scsi_Host). The detect() function should return a non-zero value if the host adapter is detected, and should return zero otherwise.
+
+Host adapter detection must be done carefully. Usually the process begins by looking in the ROM area for the ``BIOS signature'' of the host adapter. On PC/AT-compatible computers, the use of the address space between 0xc0000 and 0xfffff is fairly well defined. For example, the video BIOS on most machines starts at 0xc0000 and the hard disk BIOS, if present, starts at 0xc8000. When a PC/AT-compatible computer boots, every 2-kilobyte block from 0xc0000 to 0xf8000 is examined for the 2-byte signature (0x55aa) which indicates that a valid BIOS extension is present.
+
+Usually, each host adapter has a series of I/O port addresses which are used for communications. Sometimes these addresses will be hard coded into the driver, forcing all Linux users who have this host adapter to use a specific set of I/O port addresses. Other drivers are more flexible, and find the current I/O port address by scanning all possible port addresses. Usually each host adapter will allow 3 or 4 sets of addresses, which are selectable via hardware jumpers on the host adapter card.
