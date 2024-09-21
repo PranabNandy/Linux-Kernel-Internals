@@ -9,3 +9,10 @@ The SCSI protocol is a big-endian peer-to-peer `packet based protocol`. SCSI com
 SCSI commands can be transported over just about `any kind of bus`, and are the default protocol for storage devices attached to USB, SATA, SAS, Fibre Channel, FireWire, and ATAPI devices. SCSI packets are also commonly exchanged over Infiniband, I20, TCP/IP (iSCSI), even Parallel ports.
 
 <img width="957" alt="scsi" src="https://github.com/user-attachments/assets/0f3b1929-fb6c-4c6f-bebe-1b4ae55a881c">
+
+### Main file for the SCSI midlayer.
+
+`drivers/scsi/scsicam.c`
+**scsi_bios_ptable** — Read PC partition table out of first sector of device.
+**scsicam_bios_param** — Determine geometry of a disk in cylinders/heads/sectors.
+**scsi_partsize** — Parse cylinders/heads/sectors from PC partition table
