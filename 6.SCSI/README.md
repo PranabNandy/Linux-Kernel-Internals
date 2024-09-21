@@ -22,3 +22,16 @@ SCSI commands can be transported over just about `any kind of bus`, and are the 
 - **scsi_remove_device** — unregister a device from the scsi bus
 - **scsi_remove_target** — try to remove a target and all its devices
 
+### mid to lowlevel SCSI driver interface
+`drivers/scsi/hosts.c`
+- scsi_host_set_state — Take the given host through the host state model.
+- scsi_remove_host — remove a scsi host
+- scsi_add_host — add a scsi host
+- scsi_host_alloc — register a scsi host adapter instance.
+- scsi_host_lookup — get a reference to a Scsi_Host by host no
+- scsi_host_get — inc a Scsi_Host ref count
+- scsi_host_put — dec a Scsi_Host ref count
+- scsi_queue_work — Queue work to the Scsi_Host workqueue.
+- scsi_flush_work — Flush a Scsi_Host's workqueue.
+
+  
