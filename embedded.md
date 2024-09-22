@@ -14,3 +14,12 @@ languages referred to as HDL (Hardware Description Languages). We'll learn more 
 The HDL help describe the circuit in a textual form which is then converted to logic gate connection details for a given FPGA 
 using the build tools that are provided by the FPGA vendor.
 
+
+# CPU boot flow
+- Two things will be given to CPU
+    - Power to the cpu
+    - clock to the cpu
+ 
+- Both are taken care by Power Management circuit
+
+- 
