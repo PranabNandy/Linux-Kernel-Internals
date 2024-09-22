@@ -30,3 +30,10 @@ using the build tools that are provided by the FPGA vendor.
 - In RISC-V processors, only the PC (Program Counter) is loaded with the reset vector address, and it does not automatically load the SP (Stack Pointer).
 
 - Only loads the PC because it is designed to be more flexible, allowing **software (like the bootloader or OS)** to initialize the stack pointer (SP) later based on system requirements. 
+
+- It is the responsibility of the programmer to place the `initial code` in right memory location (which is pointed by **PC**) using `Linker Script`.
+
+### RISC-V
+![1](https://github.com/user-attachments/assets/f33d3db7-5a71-4d9c-83d1-003a797524bc)
+
+We need to set the PC to this location so that we can set the SP before jumping into the main program.
