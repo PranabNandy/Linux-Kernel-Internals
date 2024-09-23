@@ -43,4 +43,11 @@ We need to set the PC to this location so that we can set the SP before jumping 
 ![2](https://github.com/user-attachments/assets/d4d473b7-6a8f-45f0-bbd8-9c793bf626a8)
 
 
+#### RTC
+
+It stands for Real Time Clock. It is just a bunch of register, ticking up based on system level digital clock. 
+
+#### PLIC and CLINT
+
+These are interrupt management related block.
 
