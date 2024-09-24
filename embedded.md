@@ -65,3 +65,4 @@ These are interrupt management related block.
 ## main.c 
 ![3](https://github.com/user-attachments/assets/9c82cfa3-1123-4ad1-b8ee-291699ce1a09)
 
+## Line 46 is the black magic in embedded System C programming 
