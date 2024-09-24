@@ -69,3 +69,27 @@ These are interrupt management related block.
 ## Line 46 is the black magic in embedded System C programming 
 ![5](https://github.com/user-attachments/assets/6aee6de8-3593-4e72-9f9c-64f2ca09d005)
 
+## volatile
+```c++
+int foo(){
+    volatile int x=0;
+    x++;
+    return x;
+}
+```
+- volatile means never cache the variable value
+- Not even in CPU register
+- Just directly read it from Memory, modify it (if needed) and then write it back to the memory location
+
+## const
+- we can not change the value of const variable
+- Direct modification is not possible but indirect write can happen using pointer
+```c++
+int foo(){
+    const int x=851;
+    int *ptr=(int*)&x;
+    *ptr=560;
+    return x;
+}
+```
+
