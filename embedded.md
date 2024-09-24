@@ -67,3 +67,5 @@ These are interrupt management related block.
 
 
 ## Line 46 is the black magic in embedded System C programming 
+![5](https://github.com/user-attachments/assets/6aee6de8-3593-4e72-9f9c-64f2ca09d005)
+
