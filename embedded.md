@@ -1,3 +1,7 @@
+
+![unnamed (2)](https://github.com/user-attachments/assets/6484172d-55ed-4fb7-a58e-0993359375c3)
+**Deriving details** - Get into the mode of separating out the how's and the why's. Ask the right questions, get to the specifics, don't get into the implementation details just yet - that inhibits free thinking and clutters judgement.
+
 ## General Concepts
 FPGA might sound like an odd item in the list. These are one of the goto solutions for the ASIC (Application Specific Integrated Circuit) 
 designers and having a working knowledge of these will make you a better Embedded systems software engineer.
