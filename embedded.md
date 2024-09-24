@@ -35,6 +35,7 @@ using the build tools that are provided by the FPGA vendor.
 
 ### RISC-V
 ![1](https://github.com/user-attachments/assets/f33d3db7-5a71-4d9c-83d1-003a797524bc)
+- **start.S code**
 - Line 1 and 2 are the directives that will hint the assembler that line 4-6 need to be placed in `.init` section.
 - We need to set the PC to this location so that we can set the SP before jumping into the main program.
 - We place the start section at the address `0x8000 0000` location. 
@@ -44,11 +45,11 @@ using the build tools that are provided by the FPGA vendor.
 ![2](https://github.com/user-attachments/assets/d4d473b7-6a8f-45f0-bbd8-9c793bf626a8)
 
 
-#### RTC
+### RTC
 
 It stands for Real Time Clock. It is just a bunch of register, ticking up based on system level digital clock. 
 
-#### PLIC and CLINT
+### PLIC and CLINT
 
 These are interrupt management related block.
 
@@ -57,3 +58,6 @@ These are interrupt management related block.
 - All the receiving data via `rx` line will be written to `rhx` register
 - We need 3 codes to enable UART communication
 ![1](https://github.com/user-attachments/assets/44b0428e-c2f1-4743-8d47-e274e5bb6d70)
+
+## main.ld code
+![2](https://github.com/user-attachments/assets/77906a59-7d48-4cae-9dc2-cd063ec4dec7)
