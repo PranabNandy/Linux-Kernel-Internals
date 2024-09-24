@@ -35,8 +35,8 @@ using the build tools that are provided by the FPGA vendor.
 
 ### RISC-V
 ![1](https://github.com/user-attachments/assets/f33d3db7-5a71-4d9c-83d1-003a797524bc)
-
-We need to set the PC to this location so that we can set the SP before jumping into the main program.
+- Line 1 and 2 are the directives that will hint the assembler that line 4-6 need to be placed in `.init` section.
+- We need to set the PC to this location so that we can set the SP before jumping into the main program.
 
 ### Address Space/Map in Memory mapped IO
 ![1](https://github.com/user-attachments/assets/d1b5367a-a6fe-4fbd-bce4-bf4e166b7f0b)
