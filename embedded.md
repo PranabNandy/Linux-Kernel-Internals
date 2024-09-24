@@ -51,3 +51,8 @@ It stands for Real Time Clock. It is just a bunch of register, ticking up based 
 
 These are interrupt management related block.
 
+### UART
+- All transmiiting data via `tx` line will be written to `thx` register
+- All the receiving data via `rx` line will be written to `rhx` register
+- We need 3 codes to enable UART communication
+![1](https://github.com/user-attachments/assets/44b0428e-c2f1-4743-8d47-e274e5bb6d70)
