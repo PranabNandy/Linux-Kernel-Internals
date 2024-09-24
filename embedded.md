@@ -9,10 +9,15 @@ You can think of FPGA as a CHIP with lot of unconnected logic gates (AND, NOT, O
 certain fashion will lead to creation of a digital circuit. Much like how a firmware is written, the code for FPGAs is written in a 
 languages referred to as HDL (Hardware Description Languages). We'll learn more about HDLs in later emails.
 
-
-
 The HDL help describe the circuit in a textual form which is then converted to logic gate connection details for a given FPGA 
 using the build tools that are provided by the FPGA vendor.
+
+## Bare minimum SoC setup
+![unnamed (1)](https://github.com/user-attachments/assets/f361766f-7b18-445b-8a1d-c6f3b3833816)
+
+![unnamed](https://github.com/user-attachments/assets/ea90fa8b-1233-4995-add7-91e2cd7393e8)
+- The fist thing embedded software engineers do is to write a **bare minimum firmware code** that boots from single memory and writes debug messages to the UART. Notice how only three hardware pieces have to be functional to achieve this - the CPU, Memory (SRAM) and the UART hardware
+
 
 
 # CPU boot flow
