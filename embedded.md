@@ -61,3 +61,7 @@ These are interrupt management related block.
 
 ## main.ld code
 ![2](https://github.com/user-attachments/assets/77906a59-7d48-4cae-9dc2-cd063ec4dec7)
+
+## main.c 
+![3](https://github.com/user-attachments/assets/9c82cfa3-1123-4ad1-b8ee-291699ce1a09)
+
