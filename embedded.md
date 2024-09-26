@@ -102,3 +102,5 @@ int foo(){
 }
 ```
 
+## CSR register
+![11](https://github.com/user-attachments/assets/41aec02c-e442-4b2b-afc8-612737caaae2)
