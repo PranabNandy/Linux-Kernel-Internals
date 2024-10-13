@@ -113,6 +113,9 @@ int foo(){
 ### All the Sys call made by compiler to compile a program
 ![Capture](https://github.com/user-attachments/assets/19de576f-8773-4d79-b34a-1922b7c0f880)
 
+### meaning of each arguments in compilation
+![Capture](https://github.com/user-attachments/assets/753fc47a-677a-484a-b6fe-f195f14b2eb9)
+![Capture](https://github.com/user-attachments/assets/ac53851f-5c28-4943-8b2d-e3dfd8d1b8e8)
 
 
 
