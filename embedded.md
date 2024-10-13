@@ -110,4 +110,8 @@ int foo(){
 ### Linking steps
 ![Capture](https://github.com/user-attachments/assets/c2f0d4a5-dde9-4d9e-9146-5563697cf8af)
 
+### All the Sys call made by compiler to compile a program
+![Capture](https://github.com/user-attachments/assets/8c9f8af4-014b-4b5e-8b21-26572c15f7b8)
+
+
 
