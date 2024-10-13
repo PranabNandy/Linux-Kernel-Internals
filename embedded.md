@@ -105,3 +105,9 @@ int foo(){
 ## CSR register
 - So we have mapped a **C structure** to CSR of some pheripheral device
 ![11](https://github.com/user-attachments/assets/41aec02c-e442-4b2b-afc8-612737caaae2)
+
+## Compilation Process
+### Linking steps
+![Capture](https://github.com/user-attachments/assets/c2f0d4a5-dde9-4d9e-9146-5563697cf8af)
+
+
