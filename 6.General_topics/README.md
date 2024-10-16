@@ -17,4 +17,13 @@ Example
 - Mediator: "Okay, let me tell the fan to turn on and the screen to show the temperature."
 ![Screenshot 2024-10-16 135402](https://github.com/user-attachments/assets/02de4d9c-4b84-4812-b736-9788af607edc)
 
-  
+--------------------------------------------------------------------------
+## Caches
+- Spacial Locality
+- Temporal Locality
+
+Spacial Locality = Example of the acccessing array of 1000 elements in a loop
+
+Temporal Locality = 
+
+--------------------------------------------------------------------------
