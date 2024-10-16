@@ -27,3 +27,20 @@ Spacial Locality = Example of the acccessing array of 1000 elements in a loop
 Temporal Locality = 
 
 --------------------------------------------------------------------------
+
+## SoC vs MCU
+
+![Screenshot 2024-10-16 150225](https://github.com/user-attachments/assets/28cfa769-4aa0-468b-880e-3ad82ddf6fcb)
+
+MCUs are much simpler that SoCs.
+
+#### The Memory Sizes
+When I suggested that the memories are external to the SoC and that they are huge **(like in GBs)**, what I should have mentioned is - a **memory controller** is required to manage such memories. 
+
+An MCU has a very simple interconnect/bus infrastructure to which the memories that it has **(small memories in Kilo and Mega bytes)** are connected. For an SoC, the interconnect is designed for extremely high bandwidth (in GBps) and has a dedicated memory controller that manages the external DRAM. What the presence of memory controller really suggests is - the level of complexity in the design.
+
+#### MCU inside in GPU
+Consider the GPU. It has too many ALUs (arithmetic and logic units) to perform Multiply-Add-Accumulate operations. The given graphics data doesn't automatically get processed, there is usually an MCU in the GPU that takes the incoming data (image rendering related data), understands the computation to be done and distributes the work to the ALUs in the GPU. Someone to manage the incoming and outgoing data so to speak...
+
+
+
