@@ -120,4 +120,5 @@ int foo(){
 
 ### Assembly code for Risc-v architecture 
 ![Capture](https://github.com/user-attachments/assets/b81eabdd-6915-432f-88cb-dc7a2da5a381)
+![Capture](https://github.com/user-attachments/assets/452e65c5-fb09-4753-bdbd-f82901dbed07)
 
