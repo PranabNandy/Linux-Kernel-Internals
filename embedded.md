@@ -118,4 +118,6 @@ int foo(){
 ![Capture](https://github.com/user-attachments/assets/ac53851f-5c28-4943-8b2d-e3dfd8d1b8e8)
 
 
+### Assembly code for Risc-v architecture 
+![Capture](https://github.com/user-attachments/assets/b81eabdd-6915-432f-88cb-dc7a2da5a381)
 
