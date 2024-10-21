@@ -125,5 +125,9 @@ int foo(){
 ## __mulsi32 instruction in RISCV
 ![Capture](https://github.com/user-attachments/assets/978035db-28e2-4dd9-bc3f-4ada4ee2c1f6)
 
-## variable in Assembly code
+## variable in Assembly code (initialized global variable)
 ![Capture1](https://github.com/user-attachments/assets/4cf1b357-4807-4843-b876-e147680b7b6d)
+
+## Un-initialized global variable
+![Capture](https://github.com/user-attachments/assets/a55967ca-74d7-4db7-ab14-07fb691c288e)
+
