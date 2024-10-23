@@ -131,3 +131,6 @@ int foo(){
 ## Un-initialized global variable
 ![Capture](https://github.com/user-attachments/assets/a55967ca-74d7-4db7-ab14-07fb691c288e)
 
+### Preprocessor Directive
+
+![Capture](https://github.com/user-attachments/assets/84bdfcc3-e034-40a8-b6e2-a3ef6e6edd92)
