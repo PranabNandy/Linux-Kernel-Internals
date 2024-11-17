@@ -1,5 +1,5 @@
-- what is beyond dcvs and what MPMM cover over it?
-- How SCP is sending packet the first time?
+- What is beyond dcvs and what MPMM cover over it?
+- How is SCP sending a packet for the first time?
 
 # auto vs snap
 ![Screenshot from 2024-11-17 17-01-47](https://github.com/user-attachments/assets/3ba78ccf-95f1-41a2-9fee-5f5246c28a29)
@@ -21,6 +21,11 @@
 ### MPMM
 - I_min : threshold I if crosses then mpmm hits up
 - V_min : threshold V if crosses then mpmm hits up
+- 
+- **CPU utilization**
+- Power Consumption
+- Thermal limits
+- Latency requirement
  
 ## Idle Power Management
 ![Screenshot from 2024-11-17 17-25-48](https://github.com/user-attachments/assets/80ec1976-458b-49b9-80c8-6916770a6e61)
