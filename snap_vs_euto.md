@@ -27,3 +27,6 @@
 
 ## cpu_freq Governor
 ![Screenshot from 2024-11-17 18-34-40](https://github.com/user-attachments/assets/50ab89d7-01ee-4351-b9dd-0772b0791e19)
+
+## PMU ( Power Management Unit)
+![Screenshot from 2024-11-17 18-50-59](https://github.com/user-attachments/assets/b63c5e88-85b7-43d9-a365-c1eb0d08d1c9)
