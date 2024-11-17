@@ -18,3 +18,5 @@
  
 ## Idle Power Management
 ![Screenshot from 2024-11-17 17-25-48](https://github.com/user-attachments/assets/80ec1976-458b-49b9-80c8-6916770a6e61)
+
+![Screenshot from 2024-11-17 17-37-17](https://github.com/user-attachments/assets/7f90f0af-8f4a-4f4a-aead-50e1e45f47e0)
