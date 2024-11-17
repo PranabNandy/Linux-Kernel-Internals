@@ -18,6 +18,9 @@
 - It is useful for small application oriented task like USB controller
 - MCU is the generic IC
 
+### MPMM
+- I_min : threshold I if crosses then mpmm hits up
+- V_min : threshold V if crosses then mpmm hits up
  
 ## Idle Power Management
 ![Screenshot from 2024-11-17 17-25-48](https://github.com/user-attachments/assets/80ec1976-458b-49b9-80c8-6916770a6e61)
