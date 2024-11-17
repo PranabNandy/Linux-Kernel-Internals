@@ -25,3 +25,5 @@
 ## SCMI 
 ![Screenshot from 2024-11-17 18-22-54](https://github.com/user-attachments/assets/d58bb98d-5ecc-476a-97f6-0ffccff6ea4e)
 
+## cpu_freq Governor
+![Screenshot from 2024-11-17 18-34-40](https://github.com/user-attachments/assets/50ab89d7-01ee-4351-b9dd-0772b0791e19)
