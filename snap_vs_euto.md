@@ -9,3 +9,10 @@
 - When separate VM has separate address space
 ### MPU 
 - When we need separate address space for the process
+
+### ASIC vs MCU
+- ASIC is the application specific IC.
+- It is useful for small application oriented task like USB controller
+- MCU is the generic IC
+
+ 
