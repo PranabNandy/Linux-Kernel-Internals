@@ -48,5 +48,7 @@
 ## Power Consumption
 ![Screenshot from 2024-11-23 20-19-50](https://github.com/user-attachments/assets/fab60184-188a-42d6-8c77-35d190f318f6)
 
+## Address Translation
+![Screenshot from 2024-11-23 21-02-50](https://github.com/user-attachments/assets/98302bdc-9652-4d6d-b8de-33f715d05f1b)
 
 
