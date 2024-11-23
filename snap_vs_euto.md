@@ -45,4 +45,8 @@
 ![Screenshot from 2024-11-17 18-50-59](https://github.com/user-attachments/assets/b63c5e88-85b7-43d9-a365-c1eb0d08d1c9)
 ![Screenshot from 2024-11-23 19-48-46](https://github.com/user-attachments/assets/4a559667-26ba-4bbb-81cf-1ee93c044ce8)
 
+## Power Consumption
+![Screenshot from 2024-11-23 20-19-50](https://github.com/user-attachments/assets/fab60184-188a-42d6-8c77-35d190f318f6)
+
+
 
