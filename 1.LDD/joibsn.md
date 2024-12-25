@@ -9,3 +9,10 @@ Device driver communicates with device for reading and writing
 
 Device driver is called as **Module** as per kernel language.
 
+Module uses kernel services
+- INT
+- memory allocation
+- wait queue
+
+**insmod** is a user space application
+
