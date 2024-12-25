@@ -16,3 +16,11 @@ Module uses kernel services
 
 **insmod** is a user space application
 
+## Chapter 6
+
+printk - Using this function, string will get loaded in kernel log_buffer
+
+printk has 8 log level - defines the importance of message
+
+
+
