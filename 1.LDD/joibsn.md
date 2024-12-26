@@ -81,6 +81,8 @@ sudo insmod hello_world_module.ko valueETX=14 nameETX="EmbeTronicX" arr_valueETX
   
 ![Screenshot 2024-12-26 081329](https://github.com/user-attachments/assets/033880a4-b8c7-4c1c-82c7-61a91910f302)
 
+## Chapter - 9
+
 There are 2 things
 - Device creation in **/proc/devices**  { Here registering our device with a Major number }
 - Device file creation **in /dev/~~~~**   { Accessing our device with device file operation defined in driver code }
