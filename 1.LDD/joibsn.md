@@ -74,3 +74,12 @@ sudo insmod hello_world_module.ko valueETX=14 nameETX="EmbeTronicX" arr_valueETX
 ## Chapter - 7
 ![Screenshot 2024-12-26 080447](https://github.com/user-attachments/assets/3320e6a3-4326-4674-ae64-73633a0ac4a8)
 
+## Chapter - 8
+
+- ls -l /dev/ | grep "crw"
+- ls -l /dev/ | grep "brw"
+  
+![Screenshot 2024-12-26 081329](https://github.com/user-attachments/assets/033880a4-b8c7-4c1c-82c7-61a91910f302)
+
+
+
