@@ -70,3 +70,7 @@ MODULE_VERSION("1.0");
 ```c
 sudo insmod hello_world_module.ko valueETX=14 nameETX="EmbeTronicX" arr_valueETX=100,102,104,106
 ```
+
+## Chapter - 7
+![Screenshot 2024-12-26 080447](https://github.com/user-attachments/assets/3320e6a3-4326-4674-ae64-73633a0ac4a8)
+
