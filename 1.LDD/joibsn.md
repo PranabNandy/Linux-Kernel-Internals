@@ -102,3 +102,9 @@ open method
 - Reserved the space for **file->private_data** structure and keep the data in allocated space.
 
 
+## Chapter 10 - PCI device driver
+
+PCI - Pheripheral Components Interconnect
+
+PCI bus is used to connect GPU Card, LAN Card etc.
+
