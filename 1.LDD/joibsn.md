@@ -89,4 +89,8 @@ There are 2 things
 
 ![Screenshot 2024-12-26 082844](https://github.com/user-attachments/assets/dd1a3125-1f2a-4aba-99eb-cc22a65bd7da)
 
+## Chapter 10
 
+read function()
+- read function actually writes **"len"** bytes of data from kernel space to user **"buf".**
+- SO that user application can the data from **"buf"** and use it for further task.
