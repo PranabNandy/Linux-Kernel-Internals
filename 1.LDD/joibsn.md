@@ -94,3 +94,11 @@ There are 2 things
 read function()
 - read function actually writes **"len"** bytes of data from kernel space to user **"buf".**
 - SO that user application can the data from **"buf"** and use it for further task.
+
+
+open method
+- It will first check whether the device is ready ( from Device Driver module function)
+- Then if it is opening for the first time then initialize the device and Update the **f_op** pointer.
+- Reserved the space for **file->private_data** structure and keep the data in allocated space.
+
+
