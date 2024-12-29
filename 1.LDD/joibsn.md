@@ -104,7 +104,7 @@ open method
 
 ## Chapter 10 - PCI device driver
 
-PCI - Pheripheral Components Interconnect
+PCIe - Pheripheral Components Interconnect ( Express)
 
 PCI bus is used to connect GPU Card, LAN Card etc.
 
