@@ -108,3 +108,13 @@ PCI - Pheripheral Components Interconnect
 
 PCI bus is used to connect GPU Card, LAN Card etc.
 
+PCI Devices have 3 address region:
+- Configuration Space 
+- Input Output Space
+- Device Memory
+
+
+In order to send data from system to LCD screen, user needs to write pixel data in **frame buffer**, then LCD controller connects with it in timely basis and shows the fresh data in the screen. This memory space in the system called **DMA buffer.** 
+
+
+
