@@ -123,3 +123,8 @@ In order to send data from system to LCD screen, user needs to write pixel data 
 
 
 ## Chapter 13 - structure of USB device driver
+four part of usb enpoints
+- Control Endpoints := Used for configuration, command, and status exchanges between the host and the device.
+- Bulk Endpoints := For large, non-time-critical data transfers
+- Interrupt Endpoints := For small, time-sensitive data transfers that need regular polling
+- Isochronous Endpoints := For real-time data streams where timely delivery is critical.
