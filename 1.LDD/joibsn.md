@@ -116,6 +116,7 @@ PCI Devices have 3 address region:
 
 In order to send data from system to LCD screen, user needs to write pixel data in **frame buffer**, then LCD controller connects with it in timely basis and shows the fresh data in the screen. This memory space in the system called **DMA buffer.** 
 
+![Screenshot 2025-01-01 082326](https://github.com/user-attachments/assets/e4e25a27-0805-4120-a45a-313d7f82f7f6)
 
 ## Chapter 12 - USB device driver
 ![Screenshot 2024-12-29 224409](https://github.com/user-attachments/assets/a1bdcf4d-17d8-4a3c-9d5f-35cf68446270)
