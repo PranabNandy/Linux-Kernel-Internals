@@ -134,3 +134,8 @@ In USB device drivers, a URB (USB Request Block) is a data structure used to com
 ![Screenshot 2025-01-01 135421](https://github.com/user-attachments/assets/834e7514-a658-43cf-8e92-b481e12e5564)
 
 ## Chapter 14 - USB device file operation
+
+The gadget devices in USB subsystem has 2 types
+- Storage
+- Network
+
