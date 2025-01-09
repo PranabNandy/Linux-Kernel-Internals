@@ -1,4 +1,5 @@
 File system structure is stored in the first block of the disk. Root of the file system structure contains how many files are there in the system. 
+First sector = boot sector | reserved sector | reserved sector ....| File Allocation table | file allocation table(backup) | root directory
 
 # LDD
 
