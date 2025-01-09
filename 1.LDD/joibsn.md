@@ -1,3 +1,5 @@
+File system structure is stored in the first block of the disk. Root of the file system structure contains how many files are there in the system. 
+
 # LDD
 
 Device driver communicates with device for reading and writing 
