@@ -4,8 +4,9 @@ First sector = boot sector | reserved sector | reserved sector ....| File Alloca
 ## VFS
 - It allows multiple number of underlying fs layer
 - It allows file system funtionality to be loaded and unloaded in kernel at any time
+  ![Screenshot 2025-01-11 181401](https://github.com/user-attachments/assets/02f62f68-83be-4abe-8b8b-f7c0d0377aeb)
 ![WhatsApp Image 2025-01-11 at 6 13 21 PM](https://github.com/user-attachments/assets/108a6d1f-6f08-445b-b0f4-e1cf299f5be1)
-![Screenshot 2025-01-11 181401](https://github.com/user-attachments/assets/02f62f68-83be-4abe-8b8b-f7c0d0377aeb)
+
 
 ### How VFS Works
 - **High-Level API:** Applications interact with the VFS using system calls like **open, read, write, and close**.
