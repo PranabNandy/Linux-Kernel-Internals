@@ -1,6 +1,17 @@
 File system structure is stored in the first block of the disk. Root of the file system structure contains how many files are there in the system. 
 First sector = boot sector | reserved sector | reserved sector ....| File Allocation table | file allocation table(backup) | root directory
 
+## VFS
+- It allows multiple number of underlying fs layer
+- It allows file system funtionality to be loaded and unloaded in kernel at any time
+
+## How VFS Works
+- **High-Level API:** Applications interact with the VFS using system calls like **open, read, write, and close**.
+- **File System Abstraction:** The VFS maps these calls to the appropriate file system driver (e.g., ext4, NTFS) based on the mounted file systems.
+- **Uniform Namespace:** All file systems are presented as part of a single directory tree, regardless of their physical location or type.
+- **Interfacing with Drivers:** The VFS communicates with storage device drivers and file system drivers to perform the actual file operations.
+
+
 # LDD
 
 Device driver communicates with device for reading and writing 
