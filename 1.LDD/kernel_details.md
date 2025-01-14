@@ -18,7 +18,11 @@
 - Hardware Descriptions (Platform Deivce)
 -  ||| Bus ||| ( Platform bus )
 - Operations (Platform Driver)
-  
-![Screenshot 2025-01-14 224908](https://github.com/user-attachments/assets/c270b7af-ddcb-4598-a594-5254e2a2d8c5)
 
+
+![Screenshot 2025-01-14 224908](https://github.com/user-attachments/assets/c270b7af-ddcb-4598-a594-5254e2a2d8c5)
+- When we insert the driver then no device file was created
+- As soon as, we inserted the device.ko then only device files were created
+
+  
 
