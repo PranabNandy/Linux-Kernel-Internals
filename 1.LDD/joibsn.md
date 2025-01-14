@@ -1,7 +1,7 @@
 # File System
-File system structure is stored in the first block of the disk. Root of the file system structure contains how many files are there in the system. 
+File system structure is stored in the `first block of the disk`. Root of the file system structure contains how many files are there in the system. 
 
-{ First sector = boot sector | reserved sector | reserved sector ....| File Allocation table | file allocation table(backup) | root directory }
+{ `First sector` = boot sector | reserved sector | reserved sector ....| File Allocation table | file allocation table(backup) | root directory }
 
 - Files do not exist on disk (only holds data blocks called sectors ) It is an OS concepts.
 - Disk only contains the file system structures. This is special data structure that explains the files.
@@ -9,6 +9,10 @@ File system structure is stored in the first block of the disk. Root of the file
 - Kernel must have file system driver to read the files.
 - Disk is not responsilbe to implement the fs.
 - Implementing the file system requires the kernel programmers to create file system driver for target file systems.
+
+## file system structure
+- contains a header which holds information like `how many files` are there in the disk, where `root fs` is located on disk etc.
+- When you `format any disk` (USB) with a file system structure then the `new file system structure strored in the first sector` of the disk (USB)
 
 ## VFS
 - It allows multiple number of underlying fs layer
