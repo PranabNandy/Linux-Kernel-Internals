@@ -6,7 +6,7 @@ File system structure is stored in the `first block of the disk`. Root of the fi
 - First 3 bytes of boot sector `usually a short jump`
 - `Between` first line and short jump level, it contains the `fs structure`
   
-{ `First sector` = boot sector | reserved sector | reserved sector ....| File Allocation table | file allocation table(backup) | root directory }
+{ `First sector` = boot sector | reserved sector | reserved sector ....| File Allocation table | file allocation table(backup) | root directory | Data regions }
 
 ========================================================
 - Files do not exist on disk (only holds data blocks called sectors ) It is an OS concepts.
