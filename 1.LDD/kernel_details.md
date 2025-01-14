@@ -1,3 +1,8 @@
+Beagle Bone Black Boot up sequence:
+https://www.youtube.com/watch?v=0650NxKWISs&t=20s
+
+===============================================================
+
 ![Screenshot 2025-01-14 190850](https://github.com/user-attachments/assets/2eedee99-1ac3-436c-ad4a-68cc43c998be)
 ![Screenshot 2025-01-14 191710](https://github.com/user-attachments/assets/43335845-225a-4b0c-a081-20aa66c95e37)
 
@@ -32,4 +37,7 @@
   
 ## Why Linux build System ?
 ![Screenshot 2025-01-14 231417](https://github.com/user-attachments/assets/41ac0cec-471d-49a0-be25-49b8cbd48749)
+
+## Linux Boot Sequence:
+![Screenshot 2025-01-14 232540](https://github.com/user-attachments/assets/b79be61c-b0e1-44ed-96cb-29b0de68d76c)
 
