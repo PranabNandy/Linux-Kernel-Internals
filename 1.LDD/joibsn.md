@@ -20,6 +20,7 @@ File system structure is stored in the `first block of the disk`. Root of the fi
 - contains a header which holds information like `how many files` are there in the disk, where `root fs` is located on disk etc.
 - When you `format any disk` (USB) with a file system structure then the `new file system structure strored in the first sector` of the disk (USB)
 - Your OS has to be programmed to understand the fs (USB new fs) you want to read.
+- You can not store data using `NTFS file system` if your OS supports only `FAT 32 fs`.
 
 ## VFS
 - It allows multiple number of underlying fs layer
