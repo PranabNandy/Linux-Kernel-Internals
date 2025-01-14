@@ -4,3 +4,17 @@
 # What is the responsibility of kernel ?
 
 ![Screenshot 2025-01-14 220618](https://github.com/user-attachments/assets/4ecc628a-0a07-4f82-994c-2167e4509e0c)
+
+# Need for Platform Drivre
+## Driver
+- Hardware Descriptions
+- Operations
+
+## Comes with Device Model
+- Hardware Descriptions (Deivce)
+-  ||| Bus ||| ( PCI bus, USB bus )
+- Operations (Driver)
+  ===================================
+- Hardware Descriptions (Platform Deivce)
+-  ||| Bus ||| ( Platform bus )
+- Operations (Platform Driver)
