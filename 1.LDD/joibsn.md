@@ -29,14 +29,17 @@ File system structure is stored in the `first block of the disk`. Root of the fi
 ![WhatsApp Image 2025-01-11 at 6 13 21 PM](https://github.com/user-attachments/assets/108a6d1f-6f08-445b-b0f4-e1cf299f5be1)
 
 ### What happens when we insert a new disk in the system?
-- Kernel will poll each file system and check whatever fs disk holds whether it can manage or not
-- for example FAT fs will read the first block ( it varies depending on the fs) and maps FAT fs driver for that disk
+- Kernel will poll each file system and check whatever file system, `the disk holds` whether it(i.e OS) can manage or not
+- for example FAT fs will read the first block ( it varies depending on the fs) and maps `FAT fs driver` for that disk
 
 ### How VFS Works
 - **High-Level API:** Applications interact with the VFS using system calls like **open, read, write, and close**.
 - **File System Abstraction:** The VFS maps these calls to the appropriate file system driver (e.g., ext4, NTFS) based on the mounted file systems.
+```c++
+ mount -t qnx4 /dev/hd0.ms.84 /
+```
 - **Uniform Namespace:** All file systems are presented as part of a single directory tree, regardless of their physical location or type.
-- **Interfacing with Drivers:** The VFS communicates with storage device drivers and file system drivers to perform the actual file operations.
+- **Interfacing with Drivers:** The VFS communicates with  `file system drivers` followed by `storage device drivers` to perform the actual file operations.
 
 
 ## What is kernel panic ?
@@ -45,8 +48,16 @@ File system structure is stored in the `first block of the disk`. Root of the fi
 - what it will do ?
 - It will print the messages into the buffer or on the screen and then
 - Halt the kernel
-  
 
+## Important directory in Linux ( Top 5)
+- `bin` : contains all binary
+- `sbin` : contains init process to jump from kernel space to user space
+- `lib` : Contains all library + all SO + all Modules i.e Dynamically Loadable Kernel Driver like (/lib/Modules/..)
+- `dev` : contains all hardware devices in form of files
+- `etc` : contains all the configurations and rules. Here only, we create our user name and password
+
+
+==================================================================================
 # LDD
 
 Device driver communicates with device for reading and writing 
