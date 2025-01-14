@@ -1,8 +1,14 @@
 # File System
 File system structure is stored in the `first block of the disk`. Root of the file system structure contains how many files are there in the system. 
 
+#### FAT 16 file system
+- This is powered by Microsoft
+- First 3 bytes of boot sector `usually a short jump`
+- `Between` first line and short jump level, it contains the `fs structure`
+  
 { `First sector` = boot sector | reserved sector | reserved sector ....| File Allocation table | file allocation table(backup) | root directory }
 
+========================================================
 - Files do not exist on disk (only holds data blocks called sectors ) It is an OS concepts.
 - Disk only contains the file system structures. This is special data structure that explains the files.
 - It is upto the kernel to read this data structure correctly.
