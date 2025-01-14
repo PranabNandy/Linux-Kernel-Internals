@@ -24,6 +24,7 @@ File system structure is stored in the `first block of the disk`. Root of the fi
 
 ## VFS
 - It allows multiple number of underlying fs layer
+- All file system functionality uses the same interface
 - It allows file system funtionality to be loaded and unloaded in kernel at any time
     - Like if we are not using FAT fs driver, we can unload it during run time
     - It makes kernel to more memory efficient
@@ -33,6 +34,10 @@ File system structure is stored in the `first block of the disk`. Root of the fi
 ### What happens when we insert a new disk in the system?
 - Kernel will poll each file system and check whatever file system, `the disk holds` whether it(i.e OS) can manage or not
 - for example FAT fs will read the first block ( it varies depending on the fs) and maps `FAT fs driver` for that disk
+- So basically OS will `bind the FAT fs driver` with `/dev/sdb disk`
+- When User programm execute `fopen`, then kernel will find for respective file system
+- but How ?
+- Drive number `(E:/ )` binds with a particular **disk** and `that disk` is binded with `particular fs`.
 
 ### How VFS Works
 - **High-Level API:** Applications interact with the VFS using system calls like **open, read, write, and close**.
