@@ -18,3 +18,7 @@
 - Hardware Descriptions (Platform Deivce)
 -  ||| Bus ||| ( Platform bus )
 - Operations (Platform Driver)
+  
+![Screenshot 2025-01-14 224908](https://github.com/user-attachments/assets/c270b7af-ddcb-4598-a594-5254e2a2d8c5)
+
+
