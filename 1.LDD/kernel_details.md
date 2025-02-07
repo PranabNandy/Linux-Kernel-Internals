@@ -10,7 +10,7 @@ https://www.youtube.com/watch?v=0650NxKWISs&t=20s
 
 ![Screenshot 2025-01-14 220618](https://github.com/user-attachments/assets/4ecc628a-0a07-4f82-994c-2167e4509e0c)
 
-# Need for Platform Drivre
+# Need for Platform Driver
 ## Driver
 - Hardware Descriptions
 - Operations
