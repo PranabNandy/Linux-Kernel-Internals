@@ -1,3 +1,7 @@
+Linux Device Driver book : https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/joibsn.md
+
+
+
 ### OS =
 **Linux Kernel + Device Driver + Bootloader + Terminal + Basic fs + Other UI**
 ### Linux Kernel = 
