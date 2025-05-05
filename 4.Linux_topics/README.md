@@ -12,4 +12,4 @@ There are many ways to Communicate between the **Userspace** and **Kernel Space*
 - HLOS has Virtual Memory(VM) which provides the Process Isolation ( this is kind of System Level engg)
 - MCU CPU simply fetch the instruction and execute
 - CPU Processor ( Cortex-A) has Layer of Isolation ( ELx)
-- In RTOS, we can directly write the application whereas in HLOS we generally 
+- In RTOS, we can directly write the application whereas in HLOS we generally don't do that. Application developers mostly write that.
