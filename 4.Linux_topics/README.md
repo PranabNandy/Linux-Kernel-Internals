@@ -1,4 +1,4 @@
-There are many ways to Communicate between the **Userspace** and **Kernel Space**, they are:
+There are many ways to communicate between the **Userspace** and **Kernel Space**, they are:
 - IOCTL
 - Procfs
 - Sysfs
@@ -21,3 +21,5 @@ There are many ways to Communicate between the **Userspace** and **Kernel Space*
     - Application cLass CPU i.e has the concept of VM
     - HLOS
     - Kernel Device Driver
+![image](https://github.com/user-attachments/assets/255decd4-60a8-4562-aea4-7405b2747e2e)
+
