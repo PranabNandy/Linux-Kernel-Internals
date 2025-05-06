@@ -1,4 +1,7 @@
-
+# File System : 
+### https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/joibsn.md
+# Linux Kernel Internals :
+### https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/kernel_details.md
 
 # Linux Device Driver
 
