@@ -1,3 +1,10 @@
+## Pointers
+https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/6.General_topics/1.Preparation.md
+## Ftrace
+https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/6.General_topics/3.Ftrace.md
+## Custom Scheduler
+https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/6.General_topics/2.Scheduler_without_RTOS.md
+
 ## What is ABI?
 - Application Binary Interface (ABI) is a set of rules and conventions that define how software components (communicates effectively) interact with each other at the machine code level.
 - Operating systems play a crucial role in defining and enforcing ABIs. 
