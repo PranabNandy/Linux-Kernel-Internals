@@ -17,4 +17,7 @@ There are many ways to Communicate between the **Userspace** and **Kernel Space*
 ## FW engg vs System Engg
 - In FW engg, there is no certain rule to write any driver
 - In System Engg, 90% rules are defined regarding how to write a driver, you have to write the remaining 10% of it to achieve the goal i.e, manipulating a HW by also following the datasheet
-- 
+- System Engg involve :
+    - Application cLass CPU i.e has the concept of VM
+    - HLOS
+    - Kernel Device Driver
