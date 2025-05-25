@@ -1,5 +1,7 @@
 Linux Device Driver book : https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/joibsn.md
 
+Link Kindle : https://read.amazon.in/?asin=B00LX9UQX8&ref_=kwl_kr_iv_rec_1
+
 Inpyjama book : https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/embedded.md
 
 Important Difference: https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/snap_vs_euto.md
