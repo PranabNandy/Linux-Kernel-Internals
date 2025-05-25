@@ -1,6 +1,8 @@
 Linux Device Driver book : https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/joibsn.md
 
+Inpyjama book : https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/embedded.md
 
+Important Difference: https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/snap_vs_euto.md
 
 ### OS =
 **Linux Kernel + Device Driver + Bootloader + Terminal + Basic fs + Other UI**
