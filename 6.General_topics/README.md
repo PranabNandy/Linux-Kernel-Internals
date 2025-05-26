@@ -1,3 +1,6 @@
+## Industry Experience:
+https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/6.General_topics/5.Industry_experience.md
+
 ## LDD-Communication_with_HW
 https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/6.General_topics/4.LLD-Communication_with_HW.md
 
