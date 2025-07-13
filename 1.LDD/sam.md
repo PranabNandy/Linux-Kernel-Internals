@@ -18,3 +18,10 @@ and then load it by the insmod command in the user's area.
 - In the early days, Linux users told the kernel that there was a specific device before using the hardware system.
 - However, a huge number of devices do not automatically recognize the CPU. (More and more devices.) So, you have to tell the kernel what the hardware is like.
 - Therefore, in order to prevent `hard coding inside the kernel`, we will run a **platform_device** and use it.
+
+### What kind of flow does it have?
+- Kernel initialization process creates platform bus Platform Device Registration
+-  → At this time, the dev included in the platform Device is connected to the Bus.
+-  When registering a platform driver, → the driver included in the platform driver is connected to the bus.
+-  Platform Bus compares the name of the platform Device with the name included in the driver of the platform Driver.
+-  If name is the same, probe() is called If the platform device or platform driver is later removed, remove() is called
