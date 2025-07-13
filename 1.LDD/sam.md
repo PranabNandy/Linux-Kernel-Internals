@@ -23,5 +23,5 @@ and then load it by the insmod command in the user's area.
 - Kernel initialization process creates platform bus Platform Device Registration
 -  → At this time, the dev included in the platform Device is connected to the Bus.
 -  When registering a platform driver, → the driver included in the platform driver is connected to the bus.
--  Platform Bus compares the name of the platform Device with the name included in the driver of the platform Driver.
+-  Platform Bus compares **the name of the platform Device** with the `name included in the driver` of the platform Driver.
 -  If name is the same, probe() is called If the platform device or platform driver is later removed, remove() is called
