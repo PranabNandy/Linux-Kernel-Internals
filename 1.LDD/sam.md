@@ -117,3 +117,6 @@ There are also two files in it, which are as follows:
 - DTB is a data base file, and it is created when the DTS file is compiled into DTC. (autocompiled on kernel load)
 
 - DTS is a file that describes information about hardware devices, and DTSi is a file that is included in DTS. In other words, it uses DTS files and DTSi files to create DTB files.
+
+
+## Makefile & Kconfig (Kernel 5.15 ) -> Kbuild & Kconfig ( kernel 6.6)
