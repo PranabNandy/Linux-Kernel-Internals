@@ -28,3 +28,51 @@ and then load it by the insmod command in the user's area.
 
   ### Probe function
 - Usually, a probe function initializes a specific data structure or assigns a data structure.
+
+
+```bash
+/ {
+compatible = "QC, pranab-sadk"
+cpus {
+        cpu@0{
+              compatible = "arm, cortex-a9";
+        };
+        cpu@1{
+              compatible = "arm, cortex-a9";
+        };
+};
+serial@101F0000{
+        compatible = "arm,pl011";
+};
+serial@101F2000{
+        compatible = "arm,pl011";
+};
+gpio@101F3000{
+        compatible = "arm,pl061";
+};
+
+interrupt-controller@10140000{
+        compatible = "arm,pl190";
+};
+spi@10115000{
+        compatible = "arm,pl022";
+};
+
+external-bus {
+        ethernet@0,0{
+              compatible = "smc, smc91c111";
+        };
+        i2c@1,0{
+              compatible = "smc, smc91c111";
+              rtc@58{
+                    compatible = "maxim, ds1338";
+            };
+        };
+
+        flash@2,0{
+              compatible = "samsung, k8f1315ebm", "cfi-flash";
+        };
+};
+}; // close of /
+
+```
