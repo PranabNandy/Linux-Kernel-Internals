@@ -76,3 +76,44 @@ external-bus {
 }; // close of /
 
 ```
+
+
+- The addition of CPU is expressed using a node with the node name "cpus".
+- The compatible attribute is always promised to be expressed in string form in the order of "make, model".
+- All nodes are expressed in the form of name@deviceaddress.
+
+If there are no nodes that represent the same device or the same content, they can be omitted.
+
+- Such is the case with "/" or "cpus".
+
+Also, if there are multiple serial devices, it is common to distinguish them by the address of the serial device.
+
+- (ex) serial@101f1000, serial@101f2000
+
+The presence of an external bus can be described as an external-bus.
+
+- You can see that the external buses are Ethernet, I2C bus, and Flash.
+
+- Each also represents a companion as a child node.
+
+
+The important thing to note here is that a comparable is not just one string, but a list of multiple strings.
+
+- Also, you don't have to follow this format except for the first string.
+
+If the same name is used, the operating system cannot distinguish between the devices and boards it is trying to handle.
+
+- This problem is called a "**namespace conflict problem**," and it is very important to accurately describe the device name in order to resolve it.
+
+Device Tree source path
+- The source (script) of DTS is located in the arch/arm/boot/dts or arch/arm64/boot/dts path of the kernel.
+
+- The source script files are organized by architecture.
+
+
+
+There are also two files in it, which are as follows:
+
+- DTB is a data base file, and it is created when the DTS file is compiled into DTC. (autocompiled on kernel load)
+
+- DTS is a file that describes information about hardware devices, and DTSi is a file that is included in DTS. In other words, it uses DTS files and DTSi files to create DTB files.
