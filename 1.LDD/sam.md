@@ -139,5 +139,6 @@ In the practice, I had to understand menuconfig because I was dealing with the f
 
 - Now, let's take a look at how to register Make file and kConfig, respectively.
 
+<img width="682" height="332" alt="Screenshot 2025-07-13 133637" src="https://github.com/user-attachments/assets/80354ea4-b42f-4f68-8621-bd1616b59ab8" />
 
 
