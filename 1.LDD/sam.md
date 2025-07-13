@@ -25,3 +25,6 @@ and then load it by the insmod command in the user's area.
 -  When registering a platform driver, → the driver included in the platform driver is connected to the bus.
 -  Platform Bus compares **the name of the platform Device** with the `name included in the driver` of the platform Driver.
 -  If name is the same, probe() is called If the platform device or platform driver is later removed, remove() is called
+
+  ### Probe function
+- Usually, a probe function initializes a specific data structure or assigns a data structure.
