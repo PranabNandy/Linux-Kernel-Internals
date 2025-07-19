@@ -11,9 +11,25 @@ It means:
 
 This results in:
 
-- A SMU violation interrupt or exception
+- A `SMU violation interrupt` or exception
 
 - The SMU_CDB_INVALID_INFO log message (from SMU or UFS driver/BSP log)
+
+
+
+
+✅ How to Debug This
+Check your CDB buffer allocation:
+
+- Use `dma_alloc_coherent()` or `dma_alloc_attrs()` with **DMA_TO_DEVICE** for CDB
+
+- Avoid kmalloc() or vmalloc() unless you’re mapping manually
+
+Inspect SMU configuration:
+
+- Is the UFSHC master ID allowed access to the DDR region of CDB?
+
+- Check platform SMU config in QNX BSP or device tree (on Linux)
 
 ### 2. Write Booster feature from UFS 3.0 onwards
 
