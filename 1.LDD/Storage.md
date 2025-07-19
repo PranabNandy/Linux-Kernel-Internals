@@ -5,7 +5,7 @@ It means:
 
 - Outside of the permitted SMU region OR
 
-- Not mapped correctly in the DDR/IPMMU/IOMMU OR
+- Not mapped correctly in the **`DDR/IPMMU/IOMMU`** OR
 
 - Violating some access control policy
 
@@ -30,6 +30,33 @@ Inspect SMU configuration:
 - Is the UFSHC master ID allowed access to the DDR region of CDB?
 
 - Check platform SMU config in QNX BSP or device tree (on Linux)
+
+🔄 Relation to UFSHC
+UFSHC performs DMA for commands and data.
+
+Both SMU and S2MPU ensure that the UFSHC only accesses memory it's allowed to, based on:
+
+- Which VM is using it
+
+- Which memory region was allocated for the buffer
+
+If **CDB/PRDT** is not mapped properly, you will hit:
+
+- `SMU_CDB_INVALID_INFO` (SMU violation)
+
+- or **Stage-2 MMU fault** (S2MPU violation)
+
+🧪 Example (Simplified)
+If QNX is VM0 and Android is VM2:
+
+- S2MPU will be configured such that:
+
+    - UFSHC can access only the CDB/PRDT memory allocated in VM0 when QNX owns UFS
+
+    - If Android tries to reuse the same memory region (outside its allowed S2MPU window), it gets blocked
+
+- SMU, on the other hand, might block all access to `0x9000_0000–0x9FFF_FFFF` unless whitelisted for UFSHC
+
 
 ### 2. Write Booster feature from UFS 3.0 onwards
 
