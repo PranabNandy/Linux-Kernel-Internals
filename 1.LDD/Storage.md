@@ -51,7 +51,7 @@ If QNX is VM0 and Android is VM2:
 
 - S2MPU will be configured such that:
 
-    - UFSHC can access only the CDB/PRDT memory allocated in VM0 when QNX owns UFS
+    - UFSHC can access only **the CDB/PRDT memory allocated in VM0 when QNX owns UFS**
 
     - If Android tries to reuse the same memory region (outside its allowed S2MPU window), it gets blocked
 
