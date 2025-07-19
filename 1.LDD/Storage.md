@@ -1,3 +1,5 @@
+# Core Dump Feature needs to learn
+
 ### 1.What does SMU_CDB_INVALID_INFO mean?
 It means:
 
