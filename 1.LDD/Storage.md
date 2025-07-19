@@ -61,3 +61,5 @@ If QNX is VM0 and Android is VM2:
 ### 2. Write Booster feature from UFS 3.0 onwards
 
 ### 3. VH can send UFS Query for Device Management/ Device Control
+
+### 4. UFS utils : https://github.com/SanDisk-Open-Source/ufs-utils
