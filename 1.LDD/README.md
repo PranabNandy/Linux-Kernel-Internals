@@ -1,5 +1,5 @@
 # Storage 
-#### https://github.com/PranabNandy/Linux-Kernel-Internals/tree/main/1.LDD
+#### [https://github.com/PranabNandy/Linux-Kernel-Internals/tree/main/1.LDD](https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/Storage.md)
 # Sam LDD
 #### https://github.com/PranabNandy/Linux-Kernel-Internals/tree/main/1.LDD
 # File System : 
