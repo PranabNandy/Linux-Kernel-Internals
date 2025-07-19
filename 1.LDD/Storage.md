@@ -63,3 +63,4 @@ If QNX is VM0 and Android is VM2:
 ### 3. VH can send UFS Query for Device Management/ Device Control
 
 ### 4. UFS utils : https://github.com/SanDisk-Open-Source/ufs-utils
+<img width="1590" height="524" alt="Screenshot 2025-07-20 011154" src="https://github.com/user-attachments/assets/a1136d8c-bc22-4adb-8ba2-c84a718303e8" />
