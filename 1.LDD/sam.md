@@ -1,3 +1,96 @@
+## How to add a custom device driver for Beagle Bone black in BSP ?
+Some files to be added
+- drivers/pranab/pcd.c
+- drivers/pranab/Kconfig
+- drivers/pranab/Makefile ( Kbuild for Kernel 6.1 onwards)
+  
+Then we have to mention these 2 things in drivers set up
+
+- drivers/Makefile
+``` obj-$(CONFIG_PRANAB) += pranab.o ```
+- drivers/Kconfig
+``` source "drivers/pranab/Kconfig" ```
+
+Then for platform driver we have to have *.dtsi file
+- arch/arm64/boot/dts/pranab/pranab-ev2.dtsi
+``` #include "pranab-test.dtsi" ```
+- arch/arm64/boot/dts/pranab/pranab-test.dtsi
+```bash
+/ {
+      pranab_test {
+                compatible = "pranab,my-test-driver";
+                  base-address = <0x16CC8000>;
+      };
+};
+```
+drivers/pranab/Kconfig
+```c++
+config PRANAB
+    tristate "Pranab pseudo device driver"
+    default m
+    help
+      A simple test driver for BeagleBone Black.
+```
+drivers/pranab/Makefile
+```c++
+obj-$(CONFIG_PRANAB) +=pcd.o
+```
+- drivers/pranab/pcd.c
+```c++
+#include <linux/module.h>
+#include <linux/platform_device.h>
+#include <linux/of.h>  // For device tree matching
+
+static int pdrv_probe(struct platform_device *pdev)
+{
+    pr_info("Platform Driver Probed: %s\n", dev_name(&pdev->dev));
+    return 0;
+}
+
+static int pdrv_remove(struct platform_device *pdev)
+{
+    pr_info("Platform Driver Removed: %s\n", dev_name(&pdev->dev));
+    return 0;
+}
+
+static const struct of_device_id pdrv_of_match[] = {
+    { .compatible = "pranab,my-test-driver", },
+    {},
+};
+MODULE_DEVICE_TABLE(of, pdrv_of_match);
+
+static struct platform_driver my_platform_driver = {
+    .driver = {
+        .name = "my_platform_driver",
+        .of_match_table = pdrv_of_match,
+    },
+    .probe  = pdrv_probe,
+    .remove = pdrv_remove,
+};
+
+// module_platform_driver(my_platform_driver);  // We can avoid it when we are using init and exit function
+static struct platform_device *pdev;
+
+static int __init pdev_init(void)
+{
+    pdev = platform_device_register_simple(&my_platform_driver);
+    return 0;
+}
+
+static void __exit pdev_exit(void)
+{
+    platform_device_unregister(pdev);
+}
+
+module_init(pdev_init);
+module_exit(pdev_exit);
+
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Pranab");
+MODULE_DESCRIPTION("Basic Platform Driver Example");
+```
+
 ### What happens when we loads any driver
 - If you build it as a module without being embedded in the kernel (select **'m'** in the kernel's menuconfig) 
 and then load it by the insmod command in the user's area. 
