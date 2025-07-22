@@ -1,7 +1,7 @@
 # Storage 
 #### [ Industry Storege ](https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/Storage.md)
-# Sam LDD
-#### https://github.com/PranabNandy/Linux-Kernel-Internals/tree/main/1.LDD
+# Som LDD
+#### [Linux Device Driver](https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/sam.md)
 # File System : 
 #### https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/joibsn.md
 # Linux Kernel Internals :
