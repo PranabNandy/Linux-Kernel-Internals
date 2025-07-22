@@ -68,7 +68,7 @@ static struct platform_driver my_platform_driver = {
     .remove = pdrv_remove,
 };
 
-// module_platform_driver(my_platform_driver);  // We can avoid it when we are using init and exit function
+// module_platform_driver(my_platform_driver);  // This macro actaully expands to this 
 static struct platform_device *pdev;
 
 static int __init pdev_init(void)
