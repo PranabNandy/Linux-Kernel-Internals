@@ -7,6 +7,8 @@
 
 
 ## Linux List API ( linux/list.h )
+<img width="1653" height="648" alt="image" src="https://github.com/user-attachments/assets/950b6d85-1fb3-4d5a-95fc-7c4580f8e9cb" />
+
 
 ```c++
 #include <linux/init.h>
