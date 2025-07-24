@@ -1,3 +1,6 @@
+# lk Code Base
+https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/lk.md
+
 # LDD part 2
 https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/LDD_part2.md
 
