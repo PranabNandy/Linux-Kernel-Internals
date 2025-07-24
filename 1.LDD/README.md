@@ -1,3 +1,6 @@
+# LDD part 2
+https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/LDD_part2.md
+
 # Storage 
 #### [ Industry Storege ](https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/Storage.md)
 # Som LDD
