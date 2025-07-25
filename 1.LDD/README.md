@@ -1,3 +1,5 @@
+## SVC Hard Fault
+https://forums.freertos.org/t/svc-call-causing-hardfault-when-there-is-no-pre-emption-priority/20827/3
 # lk Code Base
 https://github.com/PranabNandy/Linux-Kernel-Internals/blob/main/1.LDD/lk.md
 
