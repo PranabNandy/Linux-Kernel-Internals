@@ -20,6 +20,8 @@
 
 
 # Linux fs
+<img width="1755" height="2487" alt="111" src="https://github.com/user-attachments/assets/094ddcb5-5fdb-475d-b7c4-93e57220c079" />
+
 ![Linux-storage-stack-diagram_v4 10](https://github.com/user-attachments/assets/f27c1c5f-48f2-4e5a-970c-c7b298e97c84)
 
 
