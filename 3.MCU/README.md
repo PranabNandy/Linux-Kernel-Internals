@@ -1,5 +1,5 @@
 # MCU
-✅ Modes in ARM Cortex-M3
+## ✅ Modes in ARM Cortex-M3
 Cortex-M3 supports two modes only:
 
 ### Thread Mode
@@ -26,8 +26,8 @@ Cortex-M3 supports two modes only:
     - Exception handlers (IRQ, SVC, SysTick)
 
     - Fault handlers (HardFault, MemManage, BusFault, UsageFault)
-
-✅ CONTROL Register
+-----------------------------------------------------------------------------------------------------------------
+## ✅ CONTROL Register ( Switching of Modes) 
 CONTROL is a special register that determines privilege and stack usage in Thread Mode.
 
 Bit	Meaning
@@ -107,8 +107,9 @@ const void *vector_table[] = {
     Default_Handler       /* SysTick */
 };
 ```
+-----------------------------------------------------------------------------------------------------------------
 
-## Why 2 Handlers Instead of One?
+## Why 2 Handlers Instead of One? ( SysTick Handler & PendSV Handler)
 - SysTick should run quickly → just marks PendSV pending.
 
 - PendSV does the heavy lifting (saving/restoring registers) at the lowest priority.
@@ -131,7 +132,8 @@ Why PendSV?
 
 - Avoids preempting high-priority ISRs with heavy operations.
 
-✅ **SysTick**
+-----------------------------------------------------------------------------------------------------------------
+## ✅ SysTick
 Purpose:
 - A built-in 24-bit timer that generates periodic interrupts (e.g., every 1 ms).
 
@@ -153,7 +155,9 @@ Main Use Case:
     
         - Sets PendSV interrupt pending if a context switch is needed.
 
-✅ **Why update the OS tick count?**
+-----------------------------------------------------------------------------------------------------------------
+
+## ✅ Why update the OS tick count?
 
 **The tick count** is a global variable maintained by the RTOS to **keep track of time in ticks** (e.g., every 1 ms if SysTick runs at 1 kHz). This is essential for:
 
