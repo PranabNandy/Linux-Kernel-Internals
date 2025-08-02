@@ -153,6 +153,40 @@ Main Use Case:
     
         - Sets PendSV interrupt pending if a context switch is needed.
 
+```c++
++--------------------+         +-------------------+         +------------------+
+|  User Application  | ----->  |   SVC Exception   | ----->  | Switch to Priv.  |
+|  (Thread Mode,     |         | (for kernel entry)|         |  Thread Mode     |
+|  Unprivileged)     |         +-------------------+         +------------------+
+|                    |                                               |
+|  System Calls via SVC (e.g., xTaskCreate, vTaskDelay, etc.)       |
++--------------------+                                               |
+                                                                     ↓
+                                                        +--------------------------+
+                                                        |        Scheduler          |
+                                                        |      (in RTOS kernel)     |
+                                                        +--------------------------+
+                                                                    |
+                           +----------------------------------------+----------------------------------------+
+                           |                                                                                 |
+                    (Timer Interrupt)                                                                (Context Switch)
+                          ↓                                                                                  ↓
+                +-------------------+                                                        +----------------------------+
+                |   SysTick Handler |-------------------------------------------------------> |   PendSV Handler           |
+                | (Triggers Tick ISR)|                                                        | (Low-priority context sw.) |
+                +-------------------+                                                        +----------------------------+
+                                                                                                       ↓
+                                                                                         +-------------------------+
+                                                                                         | Save Current Context    |
+                                                                                         | Load Next Task Context  |
+                                                                                         +-------------------------+
+                                                                                                   ↓
+                                                                                        +--------------------------+
+                                                                                        | Resume Next Thread       |
+                                                                                        | (Thread Mode)            |
+                                                                                        +--------------------------+
+
+```
 
 ## Architecture
 - what a car can do like go straight, go backward, go left, go right
