@@ -27,6 +27,14 @@ Cortex-M3 supports two modes only:
 
     - Fault handlers (HardFault, MemManage, BusFault, UsageFault)
 
+✅ CONTROL Register
+CONTROL is a special register that determines privilege and stack usage in Thread Mode.
+
+Bit	Meaning
+- CONTROL[0] `~~~~`	`0 = Privileged, 1 = Unprivileged` (Thread Mode only)
+- CONTROL[1] `~~~~`	`0 = Main Stack Pointer (MSP), 1 = Process Stack Pointer (PSP)`
+
+
 
 ## Architecture
 - what a car can do like go straight, go backward, go left, go right
