@@ -46,7 +46,7 @@ if (control & 0x01) {
 ```
 
 ✅ Switching Privilege Level
-1. Privileged → Unprivileged
+1. Privileged(Thread Mode) → Unprivileged (Thread Mode)
 
 - Only possible from Privileged Thread Mode.
 
@@ -60,7 +60,7 @@ __asm volatile (
     "ISB\n"                 // Flush pipeline
 );
 ```
-2. Unprivileged → Privileged
+2.1. Unprivileged(Thread Mode) → Privileged(Handler Mode)
 
 - Cannot modify CONTROL directly (privileged instruction).
 
@@ -68,7 +68,7 @@ __asm volatile (
 ```c++
 __asm volatile ("SVC #0");
 ```
-When SVC occurs, CPU enters Handler Mode (Privileged):
+2.2. When SVC occurs, CPU enters Handler Mode (Privileged):
 ```c++
 void SVC_Handler(void) {
     uint32_t control;
@@ -78,10 +78,20 @@ void SVC_Handler(void) {
     __asm volatile ("ISB");
 }
 ```
+2.3. Return from SVC:
+
+CPU returns to **Thread Mode, now privileged.**
+
+
 ✅ Flow:
 - Thread Mode (Privileged) → set CONTROL → becomes Unprivileged.
 
-- Unprivileged task → calls SVC → kernel regains Privileged → can restore Privileged Thread Mode if needed.
+- Unprivileged task → calls SVC → kernel regains Privileged (in Handler Mode) → can restore Privileged Thread Mode if needed.
+
+
+
+
+
 
 ## Architecture
 - what a car can do like go straight, go backward, go left, go right
