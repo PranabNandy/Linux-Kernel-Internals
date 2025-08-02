@@ -1,4 +1,32 @@
 # MCU
+✅ Modes in ARM Cortex-M3
+Cortex-M3 supports two modes only:
+
+### Thread Mode
+
+- The mode in which normal application code runs.
+
+- Can operate at:
+
+    - Privileged level (full access to system resources)
+
+    - Unprivileged level (restricted access, for safety and security)
+
+- Entered on reset.
+
+- After exception return, execution can return to Thread Mode.
+
+### Handler Mode
+- Used when servicing exceptions and interrupts (like IRQ, SVC, faults).
+
+- Always Privileged.
+
+- Includes:
+
+    - Exception handlers (IRQ, SVC, SysTick)
+
+    - Fault handlers (HardFault, MemManage, BusFault, UsageFault)
+
 
 ## Architecture
 - what a car can do like go straight, go backward, go left, go right
