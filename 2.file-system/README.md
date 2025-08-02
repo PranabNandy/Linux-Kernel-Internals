@@ -18,7 +18,7 @@
 - Even though we are trying to load Custom module from our Custom Kernel (4.4.72)
 ![Screenshot from 2024-09-08 17-27-45](https://github.com/user-attachments/assets/7df1a743-59da-4208-96ab-bc46f8fdd1d5)
 
-
+<img width="464" alt="Screenshot 2024-09-01 132835" src="https://github.com/user-attachments/assets/58537897-24e2-4d83-8c87-c095d057a4a6">
 # Linux fs
 <img width="1755" height="2487" alt="111" src="https://github.com/user-attachments/assets/094ddcb5-5fdb-475d-b7c4-93e57220c079" />
 
@@ -69,4 +69,4 @@
 - CIFS/SMB: Common Internet File System/Server Message Block, used mainly for file sharing on Windows networks.
 - AFS: Andrew File System, a distributed network file system.
 
-<img width="464" alt="Screenshot 2024-09-01 132835" src="https://github.com/user-attachments/assets/58537897-24e2-4d83-8c87-c095d057a4a6">
+
