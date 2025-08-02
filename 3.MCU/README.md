@@ -108,6 +108,51 @@ const void *vector_table[] = {
 };
 ```
 
+## Why 2 Handlers Instead of One?
+- SysTick should run quickly → just marks PendSV pending.
+
+- PendSV does the heavy lifting (saving/restoring registers) at the lowest priority.
+
+✅ **PendSV (Pending Supervisor Call)**
+Purpose:
+- PendSV is an interrupt with the lowest priority in Cortex-M.
+- It’s designed to defer work until all higher-priority interrupts are done.
+
+Main Use Case:
+
+- Context Switching in an RTOS (FreeRTOS, RTX, etc.).
+
+- After a SysTick interrupt triggers a scheduling decision, the PendSV handler is set pending.
+
+- When CPU finishes all other ISRs, PendSV executes → performs thread switch by saving current task context and restoring next task context.
+
+Why PendSV?
+- Context switching is not time-critical → Run it at the lowest priority.
+
+- Avoids preempting high-priority ISRs with heavy operations.
+
+✅ **SysTick**
+Purpose:
+- A built-in 24-bit timer that generates periodic interrupts (e.g., every 1 ms).
+
+Main Use Case:
+
+- System Tick Timer for an OS → provides time base for:
+
+- Preemptive scheduling.
+
+- Delays, timeouts.
+
+- In bare-metal, it can provide regular periodic tasks.
+
+- How it works in RTOS:
+
+        - SysTick fires every 1 ms.
+
+        - SysTick ISR updates system tick count.
+    
+        - Sets PendSV interrupt pending if a context switch is needed.
+
 
 ## Architecture
 - what a car can do like go straight, go backward, go left, go right
