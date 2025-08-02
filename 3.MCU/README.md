@@ -34,7 +34,54 @@ Bit	Meaning
 - CONTROL[0] `~~~~`	`0 = Privileged, 1 = Unprivileged` (Thread Mode only)
 - CONTROL[1] `~~~~`	`0 = Main Stack Pointer (MSP), 1 = Process Stack Pointer (PSP)`
 
+Checking privilege
+```c++
+uint32_t control;
+__asm volatile ("MRS %0, CONTROL" : "=r" (control) );
+if (control & 0x01) {
+    // Unprivileged
+} else {
+    // Privileged
+}
+```
 
+✅ Switching Privilege Level
+1. Privileged → Unprivileged
+
+- Only possible from Privileged Thread Mode.
+
+- Set CONTROL[0] = 1 and execute ISB (Instruction Synchronization Barrier):
+
+```c++
+__asm volatile (
+    "MRS R0, CONTROL\n"     // Read CONTROL
+    "ORR R0, R0, #1\n"      // Set bit 0 (unprivileged)
+    "MSR CONTROL, R0\n"     // Write back
+    "ISB\n"                 // Flush pipeline
+);
+```
+2. Unprivileged → Privileged
+
+- Cannot modify CONTROL directly (privileged instruction).
+
+- Must trigger SVC (Supervisor Call) to request OS/Kernel to switch back:
+```c++
+__asm volatile ("SVC #0");
+```
+When SVC occurs, CPU enters Handler Mode (Privileged):
+```c++
+void SVC_Handler(void) {
+    uint32_t control;
+    __asm volatile ("MRS %0, CONTROL" : "=r" (control) );
+    control &= ~0x01;    // Clear bit 0 → Privileged
+    __asm volatile ("MSR CONTROL, %0" :: "r" (control) );
+    __asm volatile ("ISB");
+}
+```
+✅ Flow:
+- Thread Mode (Privileged) → set CONTROL → becomes Unprivileged.
+
+- Unprivileged task → calls SVC → kernel regains Privileged → can restore Privileged Thread Mode if needed.
 
 ## Architecture
 - what a car can do like go straight, go backward, go left, go right
