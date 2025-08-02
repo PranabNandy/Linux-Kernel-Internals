@@ -153,6 +153,26 @@ Main Use Case:
     
         - Sets PendSV interrupt pending if a context switch is needed.
 
+✅ **Why update the OS tick count?**
+
+**The tick count** is a global variable maintained by the RTOS to **keep track of time in ticks** (e.g., every 1 ms if SysTick runs at 1 kHz). This is essential for:
+
+### 1. Task Scheduling and Time-Slicing
+- In preemptive multitasking, tasks share the CPU.
+
+- SysTick interrupt fires periodically (e.g., every 1 ms).
+- Each SysTick interrupt, we increase **The Tick count.**
+
+- RTOS uses tick count to decide:
+
+    - Whether the currently running task exceeded its time slice.
+
+    - If so, trigger PendSV for context switching to another ready task.
+
+Benefit:
+- Without tick count, tasks could hog CPU indefinitely → no fairness.
+
+
 ```c++
 +--------------------+         +-------------------+         +------------------+
 |  User Application  | ----->  |   SVC Exception   | ----->  | Switch to Priv.  |
