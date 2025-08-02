@@ -88,9 +88,25 @@ CPU returns to **Thread Mode, now privileged.**
 
 - Unprivileged task → calls SVC → kernel regains Privileged (in Handler Mode) → can restore Privileged Thread Mode if needed.
 
-
-
-
+```c++
+/* Vector table placed at the start of flash (0x08000000 for STM32) */
+__attribute__((section(".isr_vector")))
+const void *vector_table[] = {
+    (void *)STACK_TOP,    /* Initial stack pointer */
+    Reset_Handler,        /* Reset handler */
+    Default_Handler,      /* NMI */
+    Default_Handler,      /* HardFault */
+    Default_Handler,      /* MemManage */
+    Default_Handler,      /* BusFault */
+    Default_Handler,      /* UsageFault */
+    0, 0, 0, 0,           /* Reserved */
+    SVC_Handler,          /* SVC Handler */
+    Default_Handler,      /* Debug Monitor */
+    0,                    /* Reserved */
+    Default_Handler,      /* PendSV */
+    Default_Handler       /* SysTick */
+};
+```
 
 
 ## Architecture
