@@ -1,3 +1,36 @@
+```C++
+
+Thread (exynosboot or app)
+      |
+      v
+bio_read(dev, buf, offset, len)        [lib/bio/bio.c]
+      |
+      +--> dev->read(dev, buf, offset, len)
+                |
+                v
+        scsi_read(dev, buf, offset, len)     [dev/scsi/scsi.c]
+                |
+                v
+        scsi_exec_cmd()  -->  scsi_command_meta (CDB = READ10)
+                |
+                v
+        ufs_send_scsi_cmd() / ufs_scsi_rw()   [dev/scsi/ufs.c]
+                |
+                v
+        Build UTRD + UPIU + PRDT
+        Write Doorbell bit for free slot
+                |
+                v
+        UFS Host Controller DMA transfer
+                |
+                v
+        Device returns data → interrupt
+                |
+                v
+        Complete SCSI cmd → signal thread
+
+```
+
 ### why kernel also need "system.map" and "initrd" along with vmlinux ?
 ![Screenshot from 2024-09-08 13-49-45](https://github.com/user-attachments/assets/a34e7abf-bdd7-437b-82b5-a55a0118f161)
 
