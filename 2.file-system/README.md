@@ -1,43 +1,4 @@
 ```C++
- app/ex-boot
-load_domain_binaries(...) {
-  ...
-  return bootdomain[idx].load_binaries(...);
-}
-
-
-load_linux_binaries(...) {
-  ...
-  loading_bin(bin_type, loadpolicy, ..., partition, baseAddr, maxSize);
-}
-
-lib/exo-load-bin
-loading_bin(...) {
-  ...
-  loading_non_secure_bin(&ptn, fdt_buff, reqBlockSize, header_blk_offset);
-}
-
-
-lib/ex-partition/policies/partition_policy_pit.c
-
-read_partition(...) {
-  ...
-  return policy[idx].read_partition_func(...);
-}
-
-
-lib/ex-partition/impl/pit_random_access.c
-pit_random_access(...) {
-  ...
-  return pit_random_access_scsi(...);
-}
-
-lib/ex-pit/io_variant/pit_io_scsi_impl.c
-pit_random_access_scsi(...) {
-  ...
-  bio_read(...); // This is where it finally happens
-}
-
 
 load_domain_binaries() function ultimately leads to bio_read(), but only indirectly through a well-abstracted, multi-layered call chain involving:
 
