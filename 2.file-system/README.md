@@ -1,4 +1,72 @@
 ```C++
+ app/ex-boot
+load_domain_binaries(...) {
+  ...
+  return bootdomain[idx].load_binaries(...);
+}
+
+
+load_linux_binaries(...) {
+  ...
+  loading_bin(bin_type, loadpolicy, ..., partition, baseAddr, maxSize);
+}
+
+lib/exo-load-bin
+loading_bin(...) {
+  ...
+  loading_non_secure_bin(&ptn, fdt_buff, reqBlockSize, header_blk_offset);
+}
+
+
+lib/ex-partition/policies/partition_policy_pit.c
+
+read_partition(...) {
+  ...
+  return policy[idx].read_partition_func(...);
+}
+
+
+lib/ex-partition/impl/pit_random_access.c
+pit_random_access(...) {
+  ...
+  return pit_random_access_scsi(...);
+}
+
+lib/ex-pit/io_variant/pit_io_scsi_impl.c
+pit_random_access_scsi(...) {
+  ...
+  bio_read(...); // This is where it finally happens
+}
+
+
+load_domain_binaries() function ultimately leads to bio_read(), but only indirectly through a well-abstracted, multi-layered call chain involving:
+
+domain loading logic (*_load_binaries)
+
+binary loading policy
+
+partition policy
+
+I/O variant (SCSI, SPI, etc.)
+
+This abstraction allows the same upper-layer loading logic to work for multiple boot targets (Linux, QNX, RTOS) and storage devices (UFS, eMMC)
+
+To trace this at runtime, you can add logs in:
+
+bio_read() — to log device name, offset, size.
+
+dev->new_read() implementation — usually found in ufs.c, scsi.c, etc.
+
+pit_random_access_scsi() — already logs [PIT(%s)] load on UFS....
+
+
+Top Level: Thread calls bio_read() to read from partition.
+
+Mid Level: SCSI layer creates READ10 CDB and sends via UFS.
+
+Low Level: UFS builds descriptors, triggers DMA, and signals thread after interrupt.
+
+
 
 Thread (exynosboot or app)
       |
