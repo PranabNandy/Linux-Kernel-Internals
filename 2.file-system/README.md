@@ -112,8 +112,21 @@ Enable Host Controller Interrupts:
 - UIC Command Completion.
 
 - Error events (Fatal, Non-fatal, etc.).
-
 Program REG_INTERRUPT_ENABLE with the correct mask.
+
+## D. SCSI Layer Registration
+Finally, after hardware is ready:
+
+Create a scsi_transport_ops struct pointing to your:
+
+- queue_cmd() (for normal commands)
+
+- abort_cmd() / reset() (for task management)
+
+- Call scsi_add_lun() to register with the SCSI layer so higher layers can start sending commands.
+
+
+
 
 ```C++
 Thread (exynosboot or app)
