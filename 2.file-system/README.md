@@ -47,6 +47,74 @@ This abstraction allows the same upper-layer loading logic to work for multiple
 boot targets (Linux, QNX, RTOS) and storage devices (UFS, eMMC)
 ```
 
+# 1. Key Components to Initialize in ufs_init()
+Think of the ufs_init() process in four stages:
+
+## A. Host Controller Hardware Bring-up
+Before we even touch SCSI, we must bring the UFS Host Controller (UFS HC) to an operational state.
+
+1.Enable UFS HC Clock & Power
+
+- Turn on clocks (HCLK, PCLK, UFS core, etc.).
+
+- Power up PHY and link.
+
+- Enable required regulators (VCC, VCCQ, VCCQ2).
+
+2.Reset the UFS HC
+
+- Hardware reset (via reset controller or HCE bit in REG_CONTROLLER_ENABLE).
+
+- Software reset for UTP (UTRL, UTMRL reset bits).
+
+3.Program Host Controller Registers
+
+- Capabilities (REG_CONTROLLER_CAPABILITIES).
+
+- Interrupt enable (REG_INTERRUPT_ENABLE).
+
+- UTP base addresses for transfer and task management request lists.
+
+4.Link Startup
+
+- Configure UniPro parameters (PA, DL, NL layers).
+
+- Issue DME_LINKSTARTUP command and wait for the link to be active.
+
+- Make sure the UIC link state is UP.
+
+## B. UTP (UTP Transfer Protocol) Setup
+UFS uses two queues internally:
+
+- UTRL (UTP Transfer Request List) — For normal SCSI I/O (READ/WRITE/UNMAP…).
+
+- UTMRL (UTP Task Management Request List) — For SCSI task management commands (ABORT, RESET).
+
+In ufs_init():
+
+- Allocate and zero UTRD (UTP Request Descriptors).
+
+- Allocate UCD (Command Descriptors) and PRDT memory **(for DMA data buffers).**
+
+- Write UTRLBA / UTRLBAU registers with physical addresses of UTRD array.
+
+- Do the same for UTMRLBA / UTMRLBAU for TM commands.
+
+## C. Interrupt Configuration
+You must enable interrupts after queues are set up.
+
+Enable Host Controller Interrupts:
+
+- UTR Completion (UTRCS).
+
+- UTMR Completion.
+
+- UIC Command Completion.
+
+- Error events (Fatal, Non-fatal, etc.).
+
+Program REG_INTERRUPT_ENABLE with the correct mask.
+
 ```C++
 Thread (exynosboot or app)
       |
