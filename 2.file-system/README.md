@@ -174,8 +174,12 @@ Inside the handler:
   - Log it, possibly issue UIC reset or HC reset.
 
 
-
-
+### PRDT and DMA
+- UFS uses DMA to transfer data between system memory (PRDT) and the UFS device.
+- PRDT always contains the physical address
+- Instead of CPU copying data manually, the HC’s UTP engine reads the PRDT, then directly fetches or writes data from/to the memory addresses in those entries.
+- Writes PRDT length in UTRD (UTP Transfer Request Descriptor).
+  
 
 ```C++
 Thread (exynosboot or app)
