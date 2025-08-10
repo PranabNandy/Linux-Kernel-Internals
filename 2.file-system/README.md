@@ -6,6 +6,7 @@
 | UFS Layer   | Sends SCSI over UTP commands                | Talks to Host Ctrl |
 | Host Ctrl   | Controls UFS PHY + registers                | Platform HW        |
 
+## UFS Struct -> SCSI cmd struct -> SCSI device struct -> Block struct
 ```C++
 target_init()
   └─► ufs_init(stage=1, host_id)
