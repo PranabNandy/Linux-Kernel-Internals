@@ -1,34 +1,44 @@
+
+| Layer       | Role                                        | Interfaces With    |
+| ----------- | ------------------------------------------- | ------------------ |
+| Block Layer | Provides `read/write/erase` for filesystems | Calls SCSI Layer   |
+| SCSI Layer  | Converts block ops to SCSI commands         | Uses UFS transport |
+| UFS Layer   | Sends SCSI over UTP commands                | Talks to Host Ctrl |
+| Host Ctrl   | Controls UFS PHY + registers                | Platform HW        |
+
+```C++
+target_init()
+  └─► ufs_init(stage=1, host_id)
+        └─► ufs_host_init()
+              └─► ufs_hcd_init()         ← Initializes UFS Host Controller
+                      └─► link startup
+                      └─► descriptor setup
+                      └─► device ready
+
+  └─► ufs_init(stage=2, host_id)
+        └─► scsi_alloc_device()
+              └─► send INQUIRY
+              └─► send READ CAPACITY
+              └─► allocates bdev_t
+              └─► bdev_register("scsi0")
+
+```
+
 ```C++
 
-load_domain_binaries() function ultimately leads to bio_read(), but only indirectly through a well-abstracted, multi-layered call chain involving:
+load_domain_binaries() function ultimately leads to bio_read(), but only indirectly 
+through a well-abstracted, multi-layered call chain involving:
 
-domain loading logic (*_load_binaries)
+1.domain loading logic (*_load_binaries)
+2.binary loading policy
+3.partition policy
+4.I/O variant (SCSI, SPI, etc.)
 
-binary loading policy
+This abstraction allows the same upper-layer loading logic to work for multiple 
+boot targets (Linux, QNX, RTOS) and storage devices (UFS, eMMC)
+```
 
-partition policy
-
-I/O variant (SCSI, SPI, etc.)
-
-This abstraction allows the same upper-layer loading logic to work for multiple boot targets (Linux, QNX, RTOS) and storage devices (UFS, eMMC)
-
-To trace this at runtime, you can add logs in:
-
-bio_read() — to log device name, offset, size.
-
-dev->new_read() implementation — usually found in ufs.c, scsi.c, etc.
-
-pit_random_access_scsi() — already logs [PIT(%s)] load on UFS....
-
-
-Top Level: Thread calls bio_read() to read from partition.
-
-Mid Level: SCSI layer creates READ10 CDB and sends via UFS.
-
-Low Level: UFS builds descriptors, triggers DMA, and signals thread after interrupt.
-
-
-
+```C++
 Thread (exynosboot or app)
       |
       v
@@ -50,7 +60,7 @@ bio_read(dev, buf, offset, len)        [lib/bio/bio.c]
         Write Doorbell bit for free slot
                 |
                 v
-        UFS Host Controller DMA transfer
+        UFS Host Controller DMA transfer  { In this mode, Bulk amount of data transferred from PRDT region }
                 |
                 v
         Device returns data → interrupt
