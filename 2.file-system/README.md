@@ -23,7 +23,15 @@ target_init()
               └─► bdev_register("scsi0")
 
 ```
+## The UFS driver:
 
+- Builds a UTP Transfer Request Descriptor (UTRD).
+
+- Fills in the UFS Command Descriptor (UCD) with SCSI CDB bytes from cmd->cdb.
+
+- Sets PRDT entries for data transfer.
+
+- Rings the Doorbell to tell the UFS HC to start.
 ```C++
 
 load_domain_binaries() function ultimately leads to bio_read(), but only indirectly 
