@@ -125,6 +125,55 @@ Create a scsi_transport_ops struct pointing to your:
 
 - Call scsi_add_lun() to register with the SCSI layer so higher layers can start sending commands.
 
+## 2. Interrupt Handling in UFS
+How Interrupts Are Handled In LK:
+
+You register an IRQ handler for the UFS HC IRQ line.
+
+Inside the handler:
+
+- Read REG_INTERRUPT_STATUS.
+
+- Mask out events you care about.
+
+- Clear the status bits you’ve handled (write-1-to-clear).
+
+- Call specific sub-handlers (UTRL, UTMR, UIC, etc.).
+
+| **Interrupt Type**                  | **Register Bits**    | **Purpose**                                                          |
+| ----------------------------------- | -------------------- | -------------------------------------------------------------------- |
+| **UTP Transfer Request Completion** | UTRCS                | Signals a normal SCSI command completed. Driver calls `scsi_done()`. |
+| **UTP Task Management Completion**  | UTMRCS               | Signals a TM command completed (RESET/ABORT).                        |
+| **UIC Command Completion**          | UICCMD               | Signals a UniPro/PHY config command is done (e.g., link startup).    |
+| **Error Handling**                  | UECPA/UECDL/UECNL... | Protocol, Data Link, Network Layer errors. Requires recovery.        |
+| **Fatal Error**                     | HCFES                | Host Controller fatal condition — might require reset.               |
+
+#### Typical IRQ Flow
+- IRQ fires.
+
+- Driver reads Interrupt Status Register.
+
+- If UTRL completion:
+
+  - Find which slot finished (**UTRCS bitmask**).
+
+  - Read the completion descriptor.
+
+  - Mark the SCSI command as done and free the slot.
+
+- If UTMR completion:
+
+  - Process TM response, unblock waiting thread.
+
+- If UIC command completion:
+
+  - Mark UIC cmd complete so link training or DME operations can proceed.
+
+- If Error:
+
+  - Log it, possibly issue UIC reset or HC reset.
+
+
 
 
 
