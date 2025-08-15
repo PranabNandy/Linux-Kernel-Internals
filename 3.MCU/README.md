@@ -12,7 +12,7 @@ Cortex-M3 supports two modes only:
 
     - Unprivileged level (restricted access, for safety and security)
 
-- Entered on reset.
+- **Entered on reset.**
 
 - After exception return, execution can return to Thread Mode.
 
