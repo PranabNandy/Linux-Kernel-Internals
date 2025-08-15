@@ -247,7 +247,7 @@ Benefit:
 - Suppose inside the foo() function
   - we called first bar()
   - then we will be calling bar2()
-  - So we are calling bar() then we need to **store the return address in LR** i.e address of bar2()
+  - So we are calling bar2() then we need to **store the return address in LR** i.e address of bar()
 ![Screenshot from 2024-08-19 23-13-29](https://github.com/user-attachments/assets/7f209e28-7008-4abe-b29e-45325f401d81)
 ![Screenshot from 2024-08-19 23-25-29](https://github.com/user-attachments/assets/de869072-99af-47b8-8a4f-61c8114e5d47)
 
