@@ -40,12 +40,28 @@ struct uic_pwr_mode mode = {
 
 - Selects which signaling mode is active:
 
-  - `0 → Fast/High Speed (HS)`
+  - `2 → Fast/High Speed (HS)`
 
   - `1 → PWM (Pulse Width Modulation)`
 
   - Sometimes you may also see SYS (Type II LS) in spec, but UFS generally uses HS or PWM only
  
+
+✅ So struct uic_pwr_mode is just a software-side representation of UFS UniPro attributes, and the UFS host driver translates it into UIC DME_SET commands during link startup.
+
+`ufshcd_change_power_mode()` → `ufshcd_dme_set()`
+
+```scss
+DME_SET(PA_ActiveTxDataLanes, 2)
+DME_SET(PA_ActiveRxDataLanes, 2)
+DME_SET(PA_TxGear, 3)
+DME_SET(PA_RxGear, 3)
+DME_SET(PA_TxMode, 2)   // HS
+DME_SET(PA_RxMode, 2)   // HS
+DME_SET(PA_HSSeries, 2) // HS-B
+```
+
+
 
 
 -------------------------------------------------------------------------------------------------------------
