@@ -30,7 +30,7 @@ Rate A and Rate B.
 struct uic_pwr_mode mode = {
     .lane = 2,        // 2 lanes
     .gear = 3,        // Gear 3
-    .mode = 0,        // HS (not PWM)
+    .mode = 2,        // HS (not PWM)
     .hs_series = 2    // HS Series B
 };
 ```
