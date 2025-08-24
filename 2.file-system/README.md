@@ -1,7 +1,7 @@
 
 ## 1. How many gear modes are there in UFS M-PHY?
 
-UFS uses M-PHY in both High-Speed (HS) and Low-Speed (LS) modes:
+UFS uses M-PHY in both **High-Speed** (HS) and `Low-Speed` (LS) modes:
 
 **High-Speed (HS) Gears:**
 - Supports Gear 1, 2, 3, and extends up to Gear 4 and Gear 5 in later versions (M-PHY v5.0) 
