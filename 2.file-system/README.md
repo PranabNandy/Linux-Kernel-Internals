@@ -26,6 +26,26 @@ Rate A and Rate B.
 - `HS-Gear3-Series A` = **5 Gbps**
 - `HS-Gear3-Series B` = **5.83 Gbps**
 - PWM/ SYS are in **576 Mb/s**
+```c++
+struct uic_pwr_mode mode = {
+    .lane = 2,        // 2 lanes
+    .gear = 3,        // Gear 3
+    .mode = 0,        // HS (not PWM)
+    .hs_series = 2    // HS Series B
+};
+```
+➡️ 2-lane, HS-G3B → ~11.6 Gbps aggregate throughput (2 × 5.8 Gbps).
+
+**u8 mode**
+
+- Selects which signaling mode is active:
+
+  - `0 → Fast/High Speed (HS)`
+
+  - `1 → PWM (Pulse Width Modulation)`
+
+  - Sometimes you may also see SYS (Type II LS) in spec, but UFS generally uses HS or PWM only
+ 
 
 
 -------------------------------------------------------------------------------------------------------------
