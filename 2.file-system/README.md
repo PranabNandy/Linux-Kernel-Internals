@@ -1,4 +1,35 @@
 
+## 1. How many gear modes are there in UFS M-PHY?
+
+UFS uses M-PHY in both High-Speed (HS) and Low-Speed (LS) modes:
+
+**High-Speed (HS) Gears:**
+- Supports Gear 1, 2, 3, and extends up to Gear 4 and Gear 5 in later versions (M-PHY v5.0) 
+
+**PWM (Type-I LS) Gears:**
+- These cover Gear 0 through Gear 7 
+
+
+**SYS (Type-II LS):**
+- Unlike the PWM gearing, SYS mode isn't subdivided into typical “gears”—it’s a standalone mode, usually used for low-speed operation up to hundreds of Mbps
+
+
+## 2. What are Series A and Series B for HS Gears?
+
+Each HS gear defines two sub-rates:
+
+Rate A and Rate B.
+
+- These are roughly double each other
+- Rate B is higher than Rate A
+
+- `HS-Gear3-Series A` = **5 Gbps**
+- `HS-Gear3-Series B` = **5.83 Gbps**
+- PWM/ SYS are in **576 Mb/s**
+
+
+-------------------------------------------------------------------------------------------------------------
+
 | Layer       | Role                                        | Interfaces With    |
 | ----------- | ------------------------------------------- | ------------------ |
 | Block Layer | Provides `read/write/erase` for filesystems | Calls SCSI Layer   |
