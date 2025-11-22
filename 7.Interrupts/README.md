@@ -102,6 +102,7 @@ static int __init my_init(void)
 
 
 ### Can we use the current MACRO inside the interrupt handler
+- Basically it points to the interrupted process
 ```c++
 static irqreturn_t my_interrupt(int irq, void *dev_id)
 {
