@@ -384,4 +384,16 @@ Pending softirq handlers are checked and executed at various points in the kerne
 	c) when one of the special `ksoftirqd/n` kernel threads is awakened 
 
 
-	
+### MACRO for softirq()	
+
+```c++
+void print_context(void)
+{
+        if (in_softirq()) {
+                pr_info("Code is running in soft irq context\n");
+        } else {
+                pr_info("Code is not running in soft irq context\n");
+        }
+}
+```
+
