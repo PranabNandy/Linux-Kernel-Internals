@@ -210,6 +210,7 @@ void set_gpio_pulldown(unsigned int gpio)
 	iowrite32(0x00, mem + GPPUDCLK0_OFFSET + register_index);	
 	iounmap(mem);
 }
+// Both softirq and hardirq are executed in same processor (i.e cpu_2)
 void my_action(struct softirq_action *h)  // softirq handler function  --> running in interrupt context
 {                                         // IRQ Enabled (hardirq handler can preemmpt it)
         pr_info("my_action\n");
@@ -257,4 +258,5 @@ static void test_hello_exit(void)
 module_init(test_hello_init);
 module_exit(test_hello_exit);
 ```
+
 
