@@ -260,3 +260,6 @@ module_exit(test_hello_exit);
 ```
 
 
+<img width="1311" height="643" alt="image" src="https://github.com/user-attachments/assets/0fb0adb8-fc42-486e-b1aa-bcee97f15d81" />
+
+<img width="1250" height="581" alt="image" src="https://github.com/user-attachments/assets/aaee7d50-58cc-46eb-a4a2-c50abc76e2f7" />
