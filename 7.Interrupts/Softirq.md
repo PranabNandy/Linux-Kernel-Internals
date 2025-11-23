@@ -451,3 +451,47 @@ module_init(test_hello_init);
 module_exit(test_hello_exit)
 
 ```
+
+## INT Enable or Disabled
+```c++
+void is_irq_disabled(void)
+{
+        if (irqs_disabled())
+                pr_info("IRQ Disabled\n");
+        else
+                pr_info("IRQ Enabled\n");
+}
+static int test_hello_init(void)
+{
+	pr_info("%s: In init\n", __func__);
+	my_lock = kmalloc(sizeof(spinlock_t), GFP_KERNEL);
+	spin_lock_init(my_lock);
+	is_irq_disabled();   // IRQ Enabled
+	spin_lock(my_lock);  // ---> does not change anything
+	pr_info("Init function locked on processor:%d\n", smp_processor_id());
+	is_irq_disabled();  // IRQ Enabled
+	spin_unlock(my_lock);
+	pr_info("Init function unlocked on processor:%d\n", smp_processor_id());
+	is_irq_disabled();  // IRQ Enabled
+	kfree(my_lock);
+	return 0;
+
+}
+static int test_hello_init(void)
+{
+	unsigned long flags;
+
+	pr_info("%s: In init\n", __func__);
+	my_lock = kmalloc(sizeof(spinlock_t), GFP_KERNEL);
+	spin_lock_init(my_lock);
+	is_irq_disabled();       // IRQ Enabled
+	spin_lock_irqsave(my_lock, flags);    // ---> does change irq stuff
+	pr_info("Init function locked on processor:%d\n", smp_processor_id());
+	is_irq_disabled();       // IRQ Disabled 
+	spin_unlock_irqrestore(my_lock, flags);
+	pr_info("Init function unlocked on processor:%d\n", smp_processor_id());
+	is_irq_disabled();        // IRQ Enabled
+	kfree(my_lock);
+	return 0;
+}
+```
