@@ -149,7 +149,30 @@ Handling of interrupts is divided into two parts:
 2. Bottom Half (Soft IRQ)
 - Remaining pending work
 
-	
+
+
+Top and bottom halves with an example
+---------------------------------------
+
+Network Card on reception of packet from the network, issues an interrupt, kernel responds it by executing the handler
+
+Top Half(Interrupt Handler): 
+-	Acknowledges the interrupt, 
+-	copies the new networking packets into main memory,
+-	pushes it up to the protocol layer
+-	readies the network card for more packets.
+-	schedule the bottom half
+
+Bottom Half: 
+-	Rest of the processing and handling of the packets
+
+
+Various Mechanisms available for Bottom Half
+---------------------------------------------
+
+- 1. Soft IRQ
+- 2. Tasklets
+- 3. Workqueue
 
 
 
