@@ -1,7 +1,9 @@
 Softirqs 
 ============
+- One softirq `cannot be scheduled` twice on the same processor
+- One softirq may run in parallel on other **at the same time.**
 
-Softirqs are bottom halves that run at a high priority but with hardware interrupts enabled
+- Softirqs are bottom halves that run at a high priority but with hardware interrupts enabled
 
 Header File: <linux/softirq.h>
 
@@ -210,13 +212,21 @@ void set_gpio_pulldown(unsigned int gpio)
 	iowrite32(0x00, mem + GPPUDCLK0_OFFSET + register_index);	
 	iounmap(mem);
 }
+void print_context(void)
+{
+        if (in_irq()) {
+                pr_info("Code is running in hard irq context\n");
+        } else {
+                pr_info("Code is not running in hard irq context\n");
+        }
+}
 // Both softirq and hardirq are executed in same processor (i.e cpu_2)
 void my_action(struct softirq_action *h)  // softirq handler function  --> running in interrupt context
-{                                         // IRQ Enabled (hardirq handler can preemmpt it)
+{                                         // IRQ Enabled (hardirq handler can preemmpt it) -->  Not running in hard irq context
         pr_info("my_action\n");
 }
 static irqreturn_t  button_handler(int irq, void *dev_id)  // hardirq handler --> interrupt context
-{                                                          // IRQ disable
+{                                                          // IRQ disable  -->  running in hard irq context
         pr_info("irq:%d\n", irq);
 	    raise_softirq(MY_SOFTIRQ);
         return IRQ_HANDLED;
@@ -263,3 +273,4 @@ module_exit(test_hello_exit);
 <img width="1311" height="643" alt="image" src="https://github.com/user-attachments/assets/0fb0adb8-fc42-486e-b1aa-bcee97f15d81" />
 
 <img width="1250" height="581" alt="image" src="https://github.com/user-attachments/assets/aaee7d50-58cc-46eb-a4a2-c50abc76e2f7" />
+
