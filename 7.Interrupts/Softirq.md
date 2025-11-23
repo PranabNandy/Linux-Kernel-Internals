@@ -495,3 +495,11 @@ static int test_hello_init(void)
 	return 0;
 }
 ```
+
+Locking Between User Context and Softirqs
+==========================================
+
+- spin_lock_bh() -->	Disables softirqs on the CPU and then grabs the lock
+===> But it does not disable the INT
+- spin_unlock_bh() --> Release lock and enable softirqs
+
