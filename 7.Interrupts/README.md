@@ -112,3 +112,48 @@ static irqreturn_t my_interrupt(int irq, void *dev_id)
 	return IRQ_NONE;	/* we return IRQ_NONE because we are just observing */
 }
 ```
+
+
+Top Half and Bottom Half
+================================
+
+Two important goals of interrupt handler are:
+
+Execution Time
+-----------------
+
+- Handler of an interrupt must execute quickly
+
+- long running handlers can slow down the system and may also lead to losing interrupts
+
+- The faster the handler returns, the lower the interrupt latencies in the kernel, which is especially important for real-time systems
+
+Execution Context
+------------------
+
+- Interrupt handlers are executed in hard-interrupt context – CPU-local interrupts remain disabled
+		
+- locking is undesirable and sleeping must be avoided
+- large amount of work cannot be performed in interrupt handler
+
+
+Both limitations lead to the fact that most interrupt handlers execute only a small amount of code and defer the rest of the work to a later point in time
+
+Handling of interrupts is divided into two parts:
+
+1. Top Half (Hard IRQ)
+- Acknowledge the interrupt
+- Copy the necessary stuff from the device
+- schedule the bottom half
+
+2. Bottom Half (Soft IRQ)
+- Remaining pending work
+
+	
+
+
+
+
+
+
+
