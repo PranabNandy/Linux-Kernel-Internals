@@ -350,5 +350,38 @@ void my_action(struct softirq_action *h)
 ```
 <img width="1077" height="532" alt="image" src="https://github.com/user-attachments/assets/85765ba4-9b0f-4dab-aa34-1a8770d5b5d6" />
 
+### local_softirq_pending
+- It is 32-bit mask of pending softirqs
+```c++
+void my_action(struct softirq_action *h)
+{
+        pr_info("softirq started on processor id:%d\n", smp_processor_id());
+	pr_info("local_softirq_pending:%02x\n", local_softirq_pending());   // 0x000
+        pr_info("softirq ended on processor id:%d\n", smp_processor_id());
+}
 
 
+static irqreturn_t  button_handler(int irq, void *dev_id)
+{
+        pr_info("irq:%d, processor id:%d\n", irq, smp_processor_id());
+	pr_info("local_softirq_pending:%02x\n", local_softirq_pending());  // 0x400
+	raise_softirq(MY_SOFTIRQ);
+	pr_info("local_softirq_pending:%02x\n", local_softirq_pending());  // 0x400
+        return IRQ_HANDLED;
+}
+```
+
+When are pending softirqs run?
+-------------------------------
+
+Pending softirq handlers are checked and executed at various points in the kernel code.
+
+	a) After the completion of hard interrupt handlers with IRQ Lines Enabled
+		do_IRQ() function finishes handling an I/O interrupt and invokes the irq_exit()
+
+	b) call to functions like `local_bh_enable()` or `spin_unlock_bh()`   // bh = bottom-half
+
+	c) when one of the special `ksoftirqd/n` kernel threads is awakened 
+
+
+	
