@@ -227,15 +227,26 @@ Now main functionality of handler is to intimate hardware that it has received t
 static int irq = SHARED_IRQ, my_dev_id, irq_counter = 0;
 module_param(irq, int, S_IRUGO);
 
+void print_context(void)
+{
+        if (in_interrupt()) {
+                pr_info("Code is running in interrupt context\n");
+        } else {
+                pr_info("Code is running in process context\n");
+        }
+}
+
 static irqreturn_t my_interrupt(int irq, void *dev_id)
 {
 	pr_info("%s\n", __func__);
+    print_context();
 	return IRQ_WAKE_THREAD;
 }
 
 static irqreturn_t my_threaded_interrupt(int irq, void *dev_id)
 {
 	pr_info("%s\n", __func__);
+    print_context();
 	return IRQ_NONE;
 }
 
@@ -248,7 +259,6 @@ static int __init my_init(void)
 	
 	if (ret != 0)
 	{
-	
 		pr_info("Failed to reserve irq %d, ret:%d\n", irq, ret);
 		return -1;
 	}
