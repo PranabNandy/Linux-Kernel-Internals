@@ -178,5 +178,92 @@ Various Mechanisms available for Bottom Half
 
 
 
+Threaded IRQs
+----------------------
 
+- An alternative to using formal bottom-half mechanisms is threaded interrupt handlers.
 
+- Threaded interrupt handlers seeks to reduce the time spent with interrupts disabled to bare minimum, pushing the rest of the processing out into kernel threads.
+
+- With threaded IRQs, the way you register an interrupt handler is a bit simplified.
+
+- `You do not even have to schedule the bottom half yourself.` The core does that for us.
+
+- **The bottom half** is then executed in a **dedicated kernel thread.** 
+
+```
+int request_threaded_irq (unsigned int irq,
+		irq_handler_t handler,
+		irq_handler_t thread_fn,
+		unsigned long irqflags,
+		const char * devname,
+		void * dev_id);
+```
+
+Difference between request_irq and request_threaded_irq
+======================================================
+
+- irq_handler_t thread_fn
+
+request_threaded_irq() breaks handler code in two parts, 
+-	handler and 
+-	thread function
+
+Now main functionality of handler is to intimate hardware that it has received the interrupt and wake up thread function
+
+- As soon as handler finishes, processor is in process context. 
+
+- kernel/irq/manage.c --- setup_irq_thread
+
+- priority of the thread is set to MAX_USER_RT_PRIO/2 which is higher than regular processes
+
+```c++
+#include <linux/module.h>
+#include <linux/init.h>
+#include <linux/interrupt.h>
+#include <linux/delay.h>
+
+#define SHARED_IRQ 19
+static int irq = SHARED_IRQ, my_dev_id, irq_counter = 0;
+module_param(irq, int, S_IRUGO);
+
+static irqreturn_t my_interrupt(int irq, void *dev_id)
+{
+	pr_info("%s\n", __func__);
+	return IRQ_WAKE_THREAD;
+}
+
+static irqreturn_t my_threaded_interrupt(int irq, void *dev_id)
+{
+	pr_info("%s\n", __func__);
+	return IRQ_NONE;
+}
+
+static int __init my_init(void)
+{
+	int ret;
+	ret =  (request_threaded_irq(irq, 
+			my_interrupt, my_threaded_interrupt,
+			IRQF_SHARED, "my_interrupt", &my_dev_id)); 
+	
+	if (ret != 0)
+	{
+	
+		pr_info("Failed to reserve irq %d, ret:%d\n", irq, ret);
+		return -1;
+	}
+	pr_info("Successfully loading ISR handler\n");
+	return 0;
+}
+
+static void __exit my_exit(void)
+{
+	synchronize_irq(irq);
+	free_irq(irq, &my_dev_id);
+	pr_info("Successfully unloading,  irq_counter = %d\n", irq_counter);
+}
+
+MODULE_LICENSE("GPL");
+module_init(my_init);
+module_exit(my_exit);
+```
