@@ -235,11 +235,19 @@ void print_context(void)
                 pr_info("Code is running in process context\n");
         }
 }
+void is_irq_disabled(void)
+{
+        if (irqs_disabled())
+                pr_info("IRQ Disabled\n");
+        else
+                pr_info("IRQ Enabled\n");
+}
 
 static irqreturn_t my_interrupt(int irq, void *dev_id)
 {
 	pr_info("%s\n", __func__);
     print_context();
+    is_irq_disabled();
 	return IRQ_WAKE_THREAD;
 }
 
@@ -247,6 +255,7 @@ static irqreturn_t my_threaded_interrupt(int irq, void *dev_id)
 {
 	pr_info("%s\n", __func__);
     print_context();
+    is_irq_disabled();
 	return IRQ_NONE;
 }
 
