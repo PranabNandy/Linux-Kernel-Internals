@@ -210,12 +210,12 @@ void set_gpio_pulldown(unsigned int gpio)
 	iowrite32(0x00, mem + GPPUDCLK0_OFFSET + register_index);	
 	iounmap(mem);
 }
-void my_action(struct softirq_action *h)  // This is the softirq function
-{
+void my_action(struct softirq_action *h)  // softirq handler function  --> running in interrupt context
+{                                         // IRQ Enabled (hardirq handler can preemmpt it)
         pr_info("my_action\n");
 }
-static irqreturn_t  button_handler(int irq, void *dev_id)
-{
+static irqreturn_t  button_handler(int irq, void *dev_id)  // hardirq handler --> interrupt context
+{                                                          // IRQ disable
         pr_info("irq:%d\n", irq);
 	    raise_softirq(MY_SOFTIRQ);
         return IRQ_HANDLED;
@@ -257,3 +257,4 @@ static void test_hello_exit(void)
 module_init(test_hello_init);
 module_exit(test_hello_exit);
 ```
+
