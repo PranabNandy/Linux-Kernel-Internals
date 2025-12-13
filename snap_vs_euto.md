@@ -1,3 +1,10 @@
+Algorithm and Complexity - 
+- SCP
+- IDle
+- https://github.com/PranabNandy/Arm-Architecture/issues/5
+
+ ------------------------------------------------------------------
+
 - What is beyond dcvs and what MPMM cover over it?
 - How is SCP sending a packet for the first time?
 - I need to understand the CacheDump flow?
