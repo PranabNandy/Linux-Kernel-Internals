@@ -1,4 +1,24 @@
+🔴 Cause 1 — Cache not flushed before DMA
 
+The most common bug.
+
+UFS descriptors are allocated with:
+
+dma_alloc_coherent()
+
+which should be cache coherent.
+
+But if the platform incorrectly maps memory or uses non-coherent DMA, CPU writes may not reach DRAM.
+
+Then hardware reads stale memory.
+
+Symptoms:
+
+random bytes wrong
+
+different corruption each run
+
+Exactly what you're seeing.
 ```C++
 static void ufshcd_dump_upiu(struct ufs_hba *hba, int tag)
 {
@@ -11,7 +31,7 @@ static void ufshcd_dump_upiu(struct ufs_hba *hba, int tag)
 
 	dev_info(hba->dev,
 	"UPIU[%d] - Transfer Request Descriptor phys@0x%llx\n",
-	tag, (unsigned long long)lrbp->utr_descriptor_dma_addr);
+	tag, (unsigned long long)lrbp->utrd_dma_addr);
 
 	p = (u32 *)trd;
 
