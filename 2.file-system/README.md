@@ -1,4 +1,48 @@
 
+```C++
+static void ufshcd_dump_upiu(struct ufs_hba *hba, int tag)
+{
+	struct ufshcd_lrb *lrbp = &hba->lrb[tag];
+	struct utp_transfer_req_desc *trd = lrbp->utr_descriptor_ptr;
+	struct utp_upiu_req *req = lrbp->ucd_req_ptr;
+	struct utp_upiu_rsp *rsp = lrbp->ucd_rsp_ptr;
+	u32 *p;
+	int i;
+
+	dev_info(hba->dev,
+	"UPIU[%d] - Transfer Request Descriptor phys@0x%llx\n",
+	tag, (unsigned long long)lrbp->utr_descriptor_dma_addr);
+
+	p = (u32 *)trd;
+
+	for (i = 0; i < 8; i++)
+		dev_info(hba->dev,
+		"UPIU TRD: %08x\n", p[i]);
+
+	dev_info(hba->dev,
+	"UPIU[%d] - Request UPIU phys@0x%llx\n",
+	tag, (unsigned long long)lrbp->ucd_req_dma_addr);
+
+	p = (u32 *)req;
+
+	for (i = 0; i < 8; i++)
+		dev_info(hba->dev,
+		"UPIU REQ: %08x\n", p[i]);
+
+	dev_info(hba->dev,
+	"UPIU[%d] - Response UPIU phys@0x%llx\n",
+	tag, (unsigned long long)lrbp->ucd_rsp_dma_addr);
+
+	p = (u32 *)rsp;
+
+	for (i = 0; i < 12; i++)
+		dev_info(hba->dev,
+		"UPIU RSP: %08x\n", p[i]);
+}
+
+ufshcd_dump_upiu(hba, task_tag);
+
+```
 ## 1. How many gear modes are there in UFS M-PHY?
 
 UFS uses M-PHY in both **High-Speed** (HS) and `Low-Speed` (LS) modes:
