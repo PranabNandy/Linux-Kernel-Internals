@@ -19,6 +19,26 @@ random bytes wrong
 different corruption each run
 
 Exactly what you're seeing.
+
+🔴 Cause 3 — Wrong physical address in UTRD
+
+Controller reads UCD via address stored in UTRD.
+
+If the address is wrong:
+
+req_upiu_phys = wrong
+
+controller may DMA into wrong memory region.
+
+Then kernel sees corrupted values.
+
+Check this field in your UTRD dump:
+
+UTRD DW4–DW5 = UCD base address
+
+
+
+
 ```C++
 static void ufshcd_dump_upiu(struct ufs_hba *hba, int tag)
 {
