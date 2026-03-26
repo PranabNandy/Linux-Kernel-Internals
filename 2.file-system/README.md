@@ -1,3 +1,70 @@
+
+```C++
+
+dd if=/dev/zero of=~/spfs_test.img bs=2K count=760
+./mkfs ~/spfs_test.img
+mount -t spfs -o loop ~/spfs_test.img /mnt/spfs
+
+[ 1059.736598] spfs: spfs_mount
+[ 1059.736636] spfs: spfs_fill_super entered
+[ 1059.736711] spfs: sp_read_inode for ino=2
+[ 1059.736753] spfs: sp_alloc_inode - spi = 0xffff89ad0d35c0b0
+[ 1059.736912] spfs: sp_read_inode - spi = 0xffff89ad0d35c0b0
+[ 1059.736916] spfs: sp_read_inode - inode = 0xffff89ad0d35c4b0
+[ 1059.736919] spfs: sp_fill_super - root_inode = ffff89ad0d35c4b0
+[ 1059.741195] spfs: sp_lookup - for .Trash, dentry=ffff89ae049f2f00
+[ 1059.741200] spfs: sp_find_entry - looking for .Trash (dip = ffff89ad0d35c4b0)
+[ 1059.741244] spfs: sp_find_entry - failed for .Trash
+[ 1059.741246] spfs: sp_lookup - .Trash not found
+[ 1059.741269] spfs: sp_lookup - for .Trash-1000, dentry=ffff89ae049f2c00
+[ 1059.741272] spfs: sp_find_entry - looking for .Trash-1000 (dip = ffff89ad0d35c4b0)
+[ 1059.741274] spfs: sp_find_entry - failed for .Trash-1000
+[ 1059.741275] spfs: sp_lookup - .Trash-1000 not found
+oot@pranab-VirtualBox:~# cp abc.txt /mnt/spfs/
+root@pranab-VirtualBox:~# dmesg
+[ 1190.928646] spfs: sp_lookup - for abc.txt, dentry=ffff89ae049f0b40
+[ 1190.928654] spfs: sp_find_entry - looking for abc.txt (dip = ffff89ad0d35c4b0)
+[ 1190.928661] spfs: sp_find_entry - failed for abc.txt
+[ 1190.928662] spfs: sp_lookup - abc.txt not found
+[ 1190.928671] spfs: sp_create for abc.txt
+[ 1190.928673] spfs: sp_new_inode for abc.txt - mode=100644
+[ 1190.928677] spfs: sp_alloc_inode - spi = 0xffff89ad1f26f470
+[ 1190.928681] spfs: sp_ialloc alloc inode 4
+[ 1190.928687] spfs: sp_diradd for abc.txt (inum = 4)
+[ 1190.928693] spfs: sp_create - inode ffff89ad1f26f870 created for abc.txt
+[ 1190.928744] spfs: sp_write_begin for inode=ffff89ad1f26f870, off=0, len=13
+[ 1190.928752] spfs: sp_get_block (inode = ffff89ad1f26f870, block = 0)
+[ 1190.928753] spfs: sp_get_block - allocated blk=131 
+[ 1190.928755] spfs: sp_write_begin got page=fffff8b503661d80
+[ 1190.928757] spfs: sp_write_end for inode=ffff89ad1f26f870, off=0, len=13, page=fffff8b503661d80
+root@pranab-VirtualBox:~# cd /mnt/spfs/
+root@pranab-VirtualBox:/mnt/spfs# ls
+abc.txt  lost+found
+root@pranab-VirtualBox:/mnt/spfs# dmesg
+[ 1190.928646] spfs: sp_lookup - for abc.txt, dentry=ffff89ae049f0b40
+[ 1190.928654] spfs: sp_find_entry - looking for abc.txt (dip = ffff89ad0d35c4b0)
+[ 1190.928661] spfs: sp_find_entry - failed for abc.txt
+[ 1190.928662] spfs: sp_lookup - abc.txt not found
+[ 1190.928671] spfs: sp_create for abc.txt
+[ 1190.928673] spfs: sp_new_inode for abc.txt - mode=100644
+[ 1190.928677] spfs: sp_alloc_inode - spi = 0xffff89ad1f26f470
+[ 1190.928681] spfs: sp_ialloc alloc inode 4
+[ 1190.928687] spfs: sp_diradd for abc.txt (inum = 4)
+[ 1190.928693] spfs: sp_create - inode ffff89ad1f26f870 created for abc.txt
+[ 1190.928744] spfs: sp_write_begin for inode=ffff89ad1f26f870, off=0, len=13
+[ 1190.928752] spfs: sp_get_block (inode = ffff89ad1f26f870, block = 0)
+[ 1190.928753] spfs: sp_get_block - allocated blk=131 
+[ 1190.928755] spfs: sp_write_begin got page=fffff8b503661d80
+[ 1190.928757] spfs: sp_write_end for inode=ffff89ad1f26f870, off=0, len=13, page=fffff8b503661d80
+[ 1214.505936] spfs: sp_readdir - i_size = 128, ctx->pos = 0
+[ 1214.505942] spfs: sp_readdir - blk = 0, disk_blk = 129
+[ 1214.505949] spfs: sp_readdir - return .
+[ 1214.505951] spfs: sp_readdir - return ..
+[ 1214.505952] spfs: sp_readdir - return lost+found
+[ 1214.505953] spfs: sp_readdir - return abc.txt
+[ 1214.505965] spfs: sp_readdir - i_size = 128, ctx->pos = 128
+root@pranab-VirtualBox:/mnt/spfs#
+```
 🔴 Cause 1 — Cache not flushed before DMA
 
 The most common bug.
