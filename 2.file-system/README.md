@@ -290,7 +290,12 @@ else if (S_ISDIR(mode)) {
 }
 ```
 
-
+## 2. In case of create_file
+- We allocate inode + add dir entry
+  
+Think of the file system like a city:
+- The Inode is a House. it has a unique physical address (Inode Number), a size, and a owner.
+- The Directory is a Phonebook. It maps a "Name" to that "Physical Address."
 
 ```C++
 
