@@ -51,7 +51,8 @@ struct address_space_operations
 
 struct folio
 struct buffer_head
-🏆 struct dir_context
+struct dir_context
+🏆 struct dentry
 Purpose: The dentry represents a specific path component (like "home" in /home/user). 
 Linux uses these to speed up file access via the dcache.
 Your Usage: You use dentry->d_name.name to get the string filename and dentry->d_inode to 
