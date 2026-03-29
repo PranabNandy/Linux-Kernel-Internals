@@ -40,6 +40,30 @@ struct sp_superblock {
 };
 
 ```
+
+## 🎨 Open Source Struct
+```C++
+struct super_block sb
+struct inode
+sb->s_fs_info
+struct file_operations
+struct address_space_operations
+
+struct folio
+struct buffer_head
+🏆 struct dir_context
+Purpose: The dentry represents a specific path component (like "home" in /home/user). 
+Linux uses these to speed up file access via the dcache.
+Your Usage: You use dentry->d_name.name to get the string filename and dentry->d_inode to 
+get the actual file data associated with that name.struct dentry (Directory Entry)
+
+💎 struct inode_operations
+This is the primary interface you are providing to the kernel for directory management.
+Purpose: It tells Linux which function to call when a user runs a command like mkdir, rm, ln, or mv.
+Your Usage: You mapped your custom functions (like sp_mkdir and sp_create) to this standard VFS table.
+Without this struct, the kernel wouldn't know how to create a new file on your specific disk format.
+```
+
 ## 📁 File Structure Reference
 ```C++
 / (root directory)
