@@ -28,6 +28,9 @@ sb.s_nbfree = 758;          // 758 free blocks (760 total - 2 used)
 
         sb.s_block[0] = SP_BLOCK_INUSE; /* root directory entries */
         sb.s_block[1] = SP_BLOCK_INUSE; /* lost_found directory entries */
+
+inode ==2 for root node(/)
+inode ==3 for lost+found 
 ```
 ```c++
 struct sp_superblock {
