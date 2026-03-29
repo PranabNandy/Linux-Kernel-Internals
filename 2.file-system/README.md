@@ -1,3 +1,157 @@
+## 📁 File Structure Reference
+```C++
+/ (root directory)
+├── my_file1 (regular file)
+└── my_dir (directory)
+    └── my_file2 (regular file)
+```
+
+### 1. MOUNT Operation
+```C++
+mount -t spfs /dev/sdaX /mnt/spfs
+    ↓
+spfs_mount()
+    ↓
+mount_bdev() [kernel function]
+    ↓
+spfs_fill_super()
+    ↓
+sp_read_inode() [for root inode - ino=2]
+    ↓
+d_make_root()
+```
+
+### 2. CREATE A FILE (my_file1)
+```C++
+touch /mnt/spfs/my_file1  OR  cp file /mnt/spfs/my_file1
+    ↓
+sp_lookup() [check if file exists]
+    ↓
+sp_create()
+    ↓
+sp_new_inode()
+    ↓
+sp_ialloc() [allocate inode]
+    ↓
+sp_diradd() [add directory entry]
+    ↓
+sp_write_begin() → sp_write_end() [for file content]
+    ↓
+sp_get_block() [allocate data blocks]
+```
+### 3. CREATE A DIRECTORY (my_dir)
+```C++
+mkdir /mnt/spfs/my_dir
+    ↓
+sp_lookup() [check if directory exists]
+    ↓
+sp_mkdir()
+    ↓
+sp_new_inode() [with S_IFDIR mode]
+    ↓
+sp_ialloc() [allocate inode]
+    ↓
+sp_block_alloc() [allocate directory data block]
+    ↓
+Initialize "." and ".." entries
+    ↓
+sp_diradd() [add to parent directory]
+```
+### 4. READ A FILE WITHIN A DIRECTORY (my_dir/my_file2)
+```C++
+cat /mnt/spfs/my_dir/my_file2
+    ↓
+sp_lookup() [for my_dir]
+    ↓
+sp_read_inode() [my_dir inode]
+    ↓
+sp_lookup() [for my_file2 within my_dir]
+    ↓
+sp_read_inode() [my_file2 inode]
+    ↓
+sp_read_folio()
+    ↓
+sp_get_block() [read path, create=0]
+    ↓
+block_read_full_folio()
+```
+### 5. DELETE A FILE (my_file1)
+
+```C++
+rm /mnt/spfs/my_file1
+    ↓
+sp_unlink()
+    ↓
+sp_delete_file()
+    ↓
+sp_find_entry() [get inode number]
+    ↓
+sp_dirdel() [remove directory entry]
+    ↓
+inode_dec_link_count() [twice - parent and file]
+    ↓
+mark_inode_dirty()
+    ↓
+sp_evict_inode() [when link count reaches 0]
+    ↓
+Free inode and blocks in superblock bitmap
+```
+
+### 6. DELETE A DIRECTORY (my_dir)
+```C++
+rmdir /mnt/spfs/my_dir
+    ↓
+sp_rmdir()
+    ↓
+sp_delete_file()
+    ↓
+Check directory is empty (nlink > 2)
+    ↓
+sp_dirdel() [remove from parent]
+    ↓
+inode_dec_link_count() [parent and directory]
+    ↓
+sp_evict_inode() [cleans up directory blocks]
+```
+
+
+# Complete Function Reference Table
+
+## Operation Summary
+
+| Operation | Main Functions | File Location | Key Actions |
+|-----------|----------------|---------------|--------------|
+| **Mount** | `spfs_mount()`<br>`spfs_fill_super()`<br>`sp_read_inode()` | `sp_inode.c` | Read superblock<br>Load root inode |
+| **Lookup** | `sp_lookup()`<br>`sp_find_entry()`<br>`sp_read_inode()` | `sp_dir.c`<br>`sp_inode.c` | Search directory<br>Load inode |
+| **Create File** | `sp_create()`<br>`sp_new_inode()`<br>`sp_ialloc()`<br>`sp_diradd()` | `sp_dir.c` | Allocate inode<br>Add directory entry |
+| **Create Dir** | `sp_mkdir()`<br>`sp_new_inode()`<br>`sp_ialloc()`<br>`sp_block_alloc()` | `sp_dir.c`<br>`sp_alloc.c` | Allocate inode<br>Create `./..` entries |
+| **Write File** | `sp_write_begin()`<br>`sp_write_end()`<br>`sp_get_block()`<br>`sp_block_alloc()` | `sp_file.c`<br>`sp_alloc.c` | Allocate blocks<br>Map buffers |
+| **Read File** | `sp_read_folio()`<br>`sp_get_block()` | `sp_file.c` | Map existing blocks |
+| **Delete File** | `sp_unlink()`<br>`sp_delete_file()`<br>`sp_dirdel()`<br>`sp_evict_inode()` | `sp_dir.c`<br>`sp_inode.c` | Remove entry<br>Free inode/blocks |
+| **Delete Dir** | `sp_rmdir()`<br>`sp_delete_file()`<br>`sp_evict_inode()` | `sp_dir.c`<br>`sp_inode.c` | Check empty<br>Free resources |
+| **Rename** | `sp_rename()`<br>`sp_diradd()`<br>`sp_dirdel()` | `sp_dir.c` | Add new entry<br>Remove old entry |
+| **Hard Link** | `sp_link()`<br>`sp_diradd()` | `sp_dir.c` | Add directory entry<br>Increment `nlink` |
+| **Symlink** | `sp_symlink()`<br>`sp_new_inode()` | `sp_dir.c` | Create with `S_IFLNK`<br>Store target |
+
+## Key Data Structures
+
+> *This section is reserved for documenting the key data structures used in the SPFS implementation.*
+
+### Common Structures
+
+```c
+// Add your structure definitions here
+struct sp_superblock {
+    // Superblock fields
+};
+
+struct sp_inode {
+    // Inode fields
+};
+
+struct sp_dir_entry {
+    // Directory entry fields
+};
 
 ```C++
 
