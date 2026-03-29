@@ -6,6 +6,21 @@
 
 - **File:** Represents an open file instance in a process (tracks the current offset/cursor).
 
+## 📊 Final Layout on Disk
+```C++
+Block	Content
+Block 0	Superblock + Bitmaps
+Block 1	Root directory entries (., .., lost+found)
+Block 2	lost+found entries (., ..)
+Block 3+	Free data blocks
+```
+```C++
+struct sp_superblock sb;
+sb.s_magic = SP_MAGIC;      // Magic number for identification
+sb.s_mod = SP_FSCLEAN;       // Clean filesystem flag
+sb.s_nifree = 124;          // 124 free inodes (128 total - 4 used)
+sb.s_nbfree = 758;          // 758 free blocks (760 total - 2 used)
+```
 ## 📁 File Structure Reference
 ```C++
 / (root directory)
