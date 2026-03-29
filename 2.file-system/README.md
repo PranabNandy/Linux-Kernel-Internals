@@ -259,6 +259,39 @@ Index 1-759: Available blocks
 
 
 
+## 1. The Difference in "Data"
+While both have an inode, the way the kernel treats the data blocks pointed to by that inode is different:
+
+- **Regular File Inode**: The data blocks contain the actual content (text, images, binary code).
+
+- **Directory Inode**: The data blocks contain a table of entries (your `struct sp_dirent`). This table `maps "Filename Strings" to "Inode Numbers."`
+
+For a Regular File (S_ISREG):
+```C
+if (S_ISREG(mode)) {
+    inode->i_op = &sp_file_inops;    // Can link/unlink
+    inode->i_fop = &sp_file_operations; // Can read/write/mmap data
+    inode->i_size = 0;               // Starts empty
+}
+```
+
+For a Directory (S_ISDIR):
+```C
+else if (S_ISDIR(mode)) {
+    inode->i_op = &sp_dir_inops;     // Can mkdir/lookup/rmdir
+    inode->i_fop = &sp_dir_operations; // Can readdir (iterate)
+    inode->i_size = 2 * SP_DIRENT_SIZE; // Starts with "." and ".."
+    
+    // Allocate a block and write "." and ".." immediately
+    blk = sp_block_alloc(sb);
+    ...
+    strcpy(dirent->d_name, ".");
+    dirent->d_ino = inum; // Points to itself
+}
+```
+
+
+
 ```C++
 
 dd if=/dev/zero of=~/spfs_test.img bs=2K count=760
