@@ -20,6 +20,25 @@ sb.s_magic = SP_MAGIC;      // Magic number for identification
 sb.s_mod = SP_FSCLEAN;       // Clean filesystem flag
 sb.s_nifree = 124;          // 124 free inodes (128 total - 4 used)
 sb.s_nbfree = 758;          // 758 free blocks (760 total - 2 used)
+
+        sb.s_inode[0]  = SP_INODE_INUSE;
+        sb.s_inode[1]  = SP_INODE_INUSE;
+        sb.s_inode[2]  = SP_INODE_INUSE;
+        sb.s_inode[3]  = SP_INODE_INUSE;
+
+        sb.s_block[0] = SP_BLOCK_INUSE; /* root directory entries */
+        sb.s_block[1] = SP_BLOCK_INUSE; /* lost_found directory entries */
+```
+```c++
+struct sp_superblock {
+	__u32	s_magic;
+	__u32	s_mod;
+	__u32	s_nifree;
+	__u32	s_inode[SP_MAXFILES];  // 128
+	__u32	s_nbfree;
+	__u16	s_block[SP_MAXBLOCKS];  //760
+};
+
 ```
 ## 📁 File Structure Reference
 ```C++
