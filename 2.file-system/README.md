@@ -148,18 +148,11 @@ sp_evict_inode() [cleans up directory blocks]
 ### Common Structures
 
 ```c
-// Add your structure definitions here
-struct sp_superblock {
-    // Superblock fields
-};
+>> Directory: sp_dir_inops + sp_dir_operations
 
-struct sp_inode {
-    // Inode fields
-};
+>> Regular file: sp_file_inops + sp_file_operations + sp_aops
 
-struct sp_dir_entry {
-    // Directory entry fields
-};
+>> Symlink: simple_symlink_inode_operations
 ```
 
 ```C++
