@@ -152,6 +152,49 @@ struct sp_inode {
 struct sp_dir_entry {
     // Directory entry fields
 };
+```
+
+```C++
+
+🔑 Key Data Structures
+📊 On-Disk Structures
+struct sp_superblock - Block 0, magic number, bitmaps
+
+struct sp_inode - One per inode, block pointers
+
+struct sp_dirent - Directory entries (32 bytes each)
+
+📊 In-Core Structures
+struct spfs_sb_info - Superblock with locks and bitmaps
+
+struct sp_inode_info - Extension of VFS inode
+
+struct sp_dirent - Same as on-disk
+
+🔄 Bitmap Management
+// 🔑 Inode Allocation (sp_ialloc())
+Bitmap in sbi->s_inode[] array
+
+Index 0-1: Reserved
+
+Index 2: Root inode
+
+Index 3: lost+found (if exists)
+
+Index 4-127: Available for files/dirs
+
+// 🔑 Block Allocation (sp_block_alloc())
+Bitmap in sbi->s_block[] array
+
+Physical block = SP_FIRST_DATA_BLOCK + index
+
+Index 0: Root directory data block
+
+Index 1-759: Available blocks
+```
+
+
+
 
 ```C++
 
