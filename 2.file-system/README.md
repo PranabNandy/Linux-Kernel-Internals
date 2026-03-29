@@ -1,3 +1,11 @@
+- **Superblock:** Describes the overall file system (size, block size, magic number).
+
+- **Inode:** Represents a specific file or directory (metadata like size, permissions, and timestamps).
+
+- **Dentry:** Maps a filename to an Inode (handles the directory hierarchy).
+
+- **File:** Represents an open file instance in a process (tracks the current offset/cursor).
+
 ## 📁 File Structure Reference
 ```C++
 / (root directory)
